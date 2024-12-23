@@ -101,4 +101,6 @@ body {
   background: #fff;
   color: white;
   font-family: 'Pretendard', sans-serif;
+  width: 100vw;
+  overflow-x: hidden;
 }

@@ -8,7 +8,7 @@ interface Props {
 
 const layout = ({ children }: Props) => {
   return (
-    <div className='flex flex-col w-screen bg-black'>
+    <div className='flex flex-col w-screen overflow-x-hidden bg-black'>
       <HeaderEventPage />
       {children}
       <FooterEventPage />
