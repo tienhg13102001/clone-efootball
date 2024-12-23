@@ -2,6 +2,29 @@ import Image from "next/image"
 import React from "react"
 
 const EventCard = () => {
+  const VIDEO_CARDS = [
+    {
+      videoBG: "/images/03-videobg-01.webp",
+      profileImage: "/images/03-video-profile-01.webp",
+      username: "hongchi1104",
+    },
+    {
+      videoBG: "/images/03-videobg-02.webp",
+      profileImage: "/images/03-video-profile-02.webp",
+      username: "master_min_",
+    },
+    {
+      videoBG: "/images/03-videobg-03.webp",
+      profileImage: "/images/03-video-profile-03.webp",
+      username: "taskaevaa",
+    },
+    {
+      videoBG: "/images/03-videobg-04.webp",
+      profileImage: "/images/03-video-profile-04.webp",
+      username: "kusf_uza",
+    },
+  ]
+
   return (
     <div className="w-full pt-[13px] bg-black bg-contain bg-center">
       <div className='pt-6 mb-[76px] max-w-[1250px] bg-[#131313] bg-[url("/images/02-box-patterns.webp")] bg-cover bg-center mx-auto flex flex-col items-center rounded-3xl relative'>
@@ -30,70 +53,26 @@ const EventCard = () => {
             <span className="font-bold text-[#d8f700]">나만의 개성 있는 기대 영상 및 인증샷 올리기!</span>
           </p>
           <div className="mt-[67px] mb-[58px] flex gap-[24px]">
-            <div className="flex flex-col gap-[24px]">
-              <div className="relative">
-                <Image src={"/images/03-videobg-01.webp"} alt="" width={258} height={408} />
-                <Image
-                  src={"/images/03-playbutton.webp"}
-                  alt=""
-                  width={39}
-                  height={49}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                />
-              </div>
-              <div className="flex items-center gap-[18px]">
-                <Image src={"/images/03-video-profile-01.webp"} alt="" width={39} height={49} />
-                <p className="text-xl">hongchi1104</p>
-              </div>
-            </div>
-            <div className="flex flex-col gap-[24px]">
-              <div className="relative">
-                <Image src={"/images/03-videobg-01.webp"} alt="" width={258} height={408} />
-                <Image
-                  src={"/images/03-playbutton.webp"}
-                  alt=""
-                  width={39}
-                  height={49}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                />
-              </div>
-              <div className="flex items-center gap-[18px]">
-                <Image src={"/images/03-video-profile-01.webp"} alt="" width={39} height={49} />
-                <p className="text-xl">hongchi1104</p>
-              </div>
-            </div>
-            <div className="flex flex-col gap-[24px]">
-              <div className="relative">
-                <Image src={"/images/03-videobg-01.webp"} alt="" width={258} height={408} />
-                <Image
-                  src={"/images/03-playbutton.webp"}
-                  alt=""
-                  width={39}
-                  height={49}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                />
-              </div>
-              <div className="flex items-center gap-[18px]">
-                <Image src={"/images/03-video-profile-01.webp"} alt="" width={39} height={49} />
-                <p className="text-xl">hongchi1104</p>
-              </div>
-            </div>
-            <div className="flex flex-col gap-[24px]">
-              <div className="relative">
-                <Image src={"/images/03-videobg-01.webp"} alt="" width={258} height={408} />
-                <Image
-                  src={"/images/03-playbutton.webp"}
-                  alt=""
-                  width={39}
-                  height={49}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                />
-              </div>
-              <div className="flex items-center gap-[18px]">
-                <Image src={"/images/03-video-profile-01.webp"} alt="" width={39} height={49} />
-                <p className="text-xl">hongchi1104</p>
-              </div>
-            </div>
+            {VIDEO_CARDS.map((video, index) => {
+              return (
+                <div key={index} className="flex flex-col gap-[24px]">
+                  <div className="relative">
+                    <Image src={video.videoBG} alt="" width={258} height={408} />
+                    <Image
+                      src="/images/03-playbutton.webp"
+                      alt=""
+                      width={39}
+                      height={49}
+                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    />
+                  </div>
+                  <div className="flex items-center gap-[18px]">
+                    <Image src={video.profileImage} alt="" width={39} height={49} />
+                    <p className="text-xl">{video.username}</p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
           <Image src={"/images/03-logo.webp"} alt="" width={281} height={34} />
           <div className="text-center text-[28.5px]/[1.33] mt-[14px] mb-[109px]">
@@ -119,8 +98,7 @@ const EventCard = () => {
             <p className="text-[#d8f700] font-bold">응원 영상 및 인증샷 올리기!</p>
             <p className="text-[#8c8c8c] text-2xl/[48px]">대회 생방송 : 1월 25일 숲(SOOP) & 유튜브 라이브</p>
           </p>
-          <Image src={"/images/04-img.webp"} alt="" width={787} height={715} className="mt-[79px] mb-[140px]"/>
-        
+          <Image src={"/images/04-img.webp"} alt="" width={787} height={715} className="mt-[79px] mb-[140px]" />
         </div>
         <Image
           src={"/images/do-03-ball.webp"}
