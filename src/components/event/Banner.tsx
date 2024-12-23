@@ -4,7 +4,7 @@ import React from 'react'
 const Banner = () => {
   return (
     <div className='w-full bg-black bg-[url(/images/main-bg.webp)] bg-contain bg-center'>
-      <div className=' max-w-[1250px] mx-auto pt-80 pb-[298px] flex flex-col items-center'>
+      <div className=' mx-auto pt-80 pb-[298px] flex flex-col items-center'>
         <div className='flex flex-col items-center relative drop-shadow-2xl'>
           <div className='absolute transform -translate-y-[60px] z-10'>
             <p className='text-center font-GmarketSans font-bold text-[35px] drop-shadow-3xl'>25.01.04 ~ 25.01.26</p>
@@ -15,6 +15,7 @@ const Banner = () => {
           <Image src={"/images/main-title.webp"} alt=';' width={621} height={312} className='drop-shadow-2xl drop' />
           <p className='font-GmarketSans font-bold text-[#fdd23b] text-[44px] italic drop-shadow-2xl shadow-pink-700'>eFootballAll stars!</p>
         </div>
+        {/* <Image src={"/images/all-title@3x.png"} width={1920} height={7645} alt=''/> */}
       </div>
     </div >
   )
