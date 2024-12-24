@@ -2,13 +2,16 @@ import { auth, db } from "@/config/firebase";
 import { useAuth } from "@/contexts/AuthContext";
 import { USER_ROLE } from "@/utils/constant";
 import { doc, getDoc, setDoc } from "firebase/firestore";
+import { useState } from "react";
 import { toast } from "react-toastify";
 
 export const useAuthService = () => {
+    const [loading, setLoading] = useState<boolean>(false);
     const { login, signup } = useAuth();
 
     const handleLogin = async (email: string, password: string) => {
         try {
+            setLoading(true);
             await login(email, password);
 
             const user = auth.currentUser;
@@ -35,6 +38,8 @@ export const useAuthService = () => {
             toast.success('Login successfully!!');
         } catch (error) {
             console.error('Lỗi khi đăng nhập:', error);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -57,6 +62,7 @@ export const useAuthService = () => {
 
 
     return {
+        loading,
         handleLogin,
         handleSignUp
     }

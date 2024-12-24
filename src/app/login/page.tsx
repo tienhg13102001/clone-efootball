@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
 
 const Login = () => {
-    const { handleLogin } = useAuthService();
+    const { loading, handleLogin } = useAuthService();
     const [adminId, setAdminId] = useState<string>('dev.efootballcup@gmail.com');
     const [password, setPassword] = useState<string>('efb2025aA!');
     const router = useRouter()
@@ -72,7 +72,8 @@ const Login = () => {
                     <div className='w-full flex items-center justify-center'>
                         <button
                             type="submit"
-                            className="w-36 py-2 bg-black text-white  hover:bg-gray-800 mx-auto"
+                            disabled={loading}
+                            className="w-36 py-2 bg-black text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-800 mx-auto"
                         >
                             관리자 로그인
                         </button>
