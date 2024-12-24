@@ -52,7 +52,7 @@ const EventCard = () => {
       {/*  */}
       <div className='pt-6 mb-[76px] max-w-[1250px] bg-[#131313] bg-[url("/images/03-box-patterns.webp")] bg-cover bg-center mx-auto flex flex-col items-center rounded-3xl relative'>
         <p className="mt-[92px] mb-[37px] text-4xl lg:text-[50px]/[1] font-bold">EVENT 01</p>
-        <div className="flex flex-col items-center text-xl lg:text-[48px] lg:leading-[76px] tracking-[0.8]">
+        <div className="flex flex-col items-center text-xl lg:text-[48px] lg:leading-[55px] -tracking-[0.8]">
           <p className="font-GmarketSans text-center font-medium ">
             감스트 X 이상호 팀 배틀 e풋볼을 기다리며
             <br />
@@ -82,8 +82,8 @@ const EventCard = () => {
           </div>
           <Image src={"/images/03-logo.webp"} alt="" width={isMobile ? 200 : 281} height={34} className="object-contain" />
           <div className="text-center text-base lg:text-[28.5px]/[1.33] mt-[14px] mb-[109px]">
-            <p>나만의 특별한 응원법! 이 경기장의 패셔니스타는 바로나!</p>
-            <p>응원할 때 먹으면 두 배 즐거워지는 먹방 노하우!</p>
+            <p className="font-light">나만의 특별한 응원법! 이 경기장의 패셔니스타는 바로나!</p>
+            <p className="font-light">응원할 때 먹으면 두 배 즐거워지는 먹방 노하우!</p>
             <p className="font-bold">특별한 응원 영상 인증과 함께 다양하고 푸짐한 혜택도 팡팡!</p>
           </div>
         </div>
