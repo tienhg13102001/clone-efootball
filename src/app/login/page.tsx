@@ -2,20 +2,21 @@
 import { auth } from '@/config/firebase';
 import { useAuthService } from '@/services/useAuthService';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
 
 const Login = () => {
     const { handleLogin } = useAuthService();
     const [adminId, setAdminId] = useState<string>('dev.efootballcup@gmail.com');
     const [password, setPassword] = useState<string>('efb2025aA!');
-    // const router = useRouter()
+    const router = useRouter()
 
     const handleSubmit = async (e: FormEvent) => {
         try {
             e.preventDefault();
             await handleLogin(adminId, password)
             if (auth.currentUser) {
-                // router.push('/')
+                router.push('/')
             }
 
 
