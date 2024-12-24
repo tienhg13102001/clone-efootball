@@ -20,7 +20,7 @@ const FooterEventPage = () => {
           <Image src='/images/logo/rights-logo-07.webp' alt='rights-logo-07' height={isMobile ? 30 : 54} width={isMobile ? 30 : 54} className='object-contain' />
         </div>
 
-        <div className='text-white text-center text-pretty md:text-base text-[10px] flex flex-col items-center gap-5'>
+        <div className='text-white text-center text-pretty 3xl:text-base md:text-sm text-[10px] flex flex-col items-center gap-5'>
           <p>adidas, the 3-Bars logo, the 3-Stripe trade mark, Predator, F50, Y-3 and Climacool are trademarks of the adidas Group, used with permission.  The use of certain player names, images and likenesses on a collective basis is authorised by FIFPRO Commercial Enterprises BV.  Officially Licensed Product of the MLSPA © [2024]  © 2024, DFB. Official Licensed Product of Deutscher Fußball-Bund produced by Konami Digital Entertainment.  © The Football Association Ltd 2024  Copyright FFF ©  Official Licensee of the FIGC  The FIGC logo is a registered trade mark of the Federazione Italiana Giuoco Calcio  ALL RIGHTS RESERVED BY JFA  Official Licensed Product of the RFEF  Officially Licensed by Eredivisie C.V. and Stichting CAO voor Contractspelers  ©J.LEAGUE  ©Ligue de Football Professionnel  ™ © 2024 THE ARSENAL FOOTBALL CLUB PLC, ALL RIGHTS RESERVED.  © S.L.B. Produto Oficial  © Manchester United Football Club Limited 2024 All rights reserved  © Wembley National Stadium Limited 2024  All other copyrights or trademarks are the property of their respective owners and are used under license.</p>
 
           <p>NASA <br />

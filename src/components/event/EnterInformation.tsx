@@ -22,13 +22,20 @@ const EnterInformation = () => {
 
   return (
     <div className='w-full bg-black min-h-screen bg-[url("/images/information/08-rights-bg.webp")] bg-no-repeat bg-contain h-[300px] lg:h-[1100px]'>
-      <div className='container max-w-[1250px] mx-auto'>
+      <div className='container max-w-[1250px] mx-auto relative'>
+        <Image
+          src={"/images/information/do-05-shoes.webp"}
+          alt=""
+          width={isMobile ? 300 : 680}
+          height={710}
+          className="absolute top-20 left-0 -translate-x-[650px] object-contain z-50 hidden 3xl:block"
+        />
         <div className='flex flex-col items-center pt-20 lg:pt-0'>
           <div className='relative mb-[39px]'>
             <Image src='/images/participate/05-titlebox.webp' alt='' width={110} height={52} />
             <p className='absolute top-1 left-[33%] text-[#1a1a1a] text-[32px] font-bold'>03</p>
           </div>
-          <p className='text-white text-3xl lg:text-[40px] font-bold mb-[35px]'>신청자 정보를 <br />
+          <p className='text-white text-3xl lg:text-[40px] font-bold mb-[35px] lg:leading-[53px] lg:-tracking-[0.8px]'>신청자 정보를 <br />
             입력해 주세요!
           </p>
 
@@ -77,7 +84,7 @@ const EnterInformation = () => {
             </div>
             <button className='mt-10 lg:mt-16' type="submit">
               <Image
-                src='/images/participate/05-but.webp'
+                src='/images/participate/07-but.webp'
                 alt='numberbox-1'
                 width={isMobile ? 300 : 560}
                 height={70}
