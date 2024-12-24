@@ -1,16 +1,28 @@
 'use client'
-import { useState, FormEvent } from 'react';
+import { auth } from '@/config/firebase';
+import { useAuthService } from '@/services/useAuthService';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation'
-const Login = () => {
-    const [adminId, setAdminId] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const router = useRouter()
+import { FormEvent, useState } from 'react';
 
-    const handleSubmit = (e: FormEvent) => {
-        e.preventDefault();
-        console.log('Đăng nhập với ID:', adminId, 'Mật khẩu:', password);
-        router.push('/');
+const Login = () => {
+    const { handleLogin } = useAuthService();
+    const [adminId, setAdminId] = useState<string>('dev.efootballcup@gmail.com');
+    const [password, setPassword] = useState<string>('efb2025aA!');
+    // const router = useRouter()
+
+    const handleSubmit = async (e: FormEvent) => {
+        try {
+            e.preventDefault();
+            await handleLogin(adminId, password)
+            if (auth.currentUser) {
+                // router.push('/')
+            }
+
+
+        } catch (error) {
+            console.error(error);
+
+        }
     };
 
     return (
@@ -37,7 +49,7 @@ const Login = () => {
                                 name="adminId"
                                 value={adminId}
                                 onChange={(e) => setAdminId(e.target.value)}
-                                className="w-full px-4 py-2 mt-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                className="w-full px-4 py-2 mt-2 border text-black border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                 required
                             />
                         </div>
@@ -51,7 +63,7 @@ const Login = () => {
                                 name="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="w-full px-4 py-2 mt-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                className="w-full px-4 py-2 mt-2 border text-black border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                 required
                             />
                         </div>
