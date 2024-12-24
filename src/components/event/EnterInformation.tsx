@@ -1,4 +1,5 @@
 'use client'
+import useScreenSize from '@/hooks/useScreenSize';
 import Image from 'next/image'
 import React from 'react'
 import { useForm } from 'react-hook-form';
@@ -15,15 +16,19 @@ const EnterInformation = () => {
   const onSubmit = (data: FormData) => console.log(data);
   console.log(errors);
 
+  const screenSize = useScreenSize();
+  const isMobile =
+    screenSize === "xs" || screenSize === "sm" || screenSize === "md";
+
   return (
-    <div className='w-full bg-black min-h-screen bg-[url("/images/information/08-rights-bg.webp")] bg-no-repeat bg-contain h-[1540px]'>
+    <div className='w-full bg-black min-h-screen bg-[url("/images/information/08-rights-bg.webp")] bg-no-repeat bg-contain h-[300px] lg:h-[1100px]'>
       <div className='container max-w-[1250px] mx-auto'>
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col items-center pt-20 lg:pt-0'>
           <div className='relative mb-[39px]'>
             <Image src='/images/participate/05-titlebox.webp' alt='' width={110} height={52} />
             <p className='absolute top-1 left-[33%] text-[#1a1a1a] text-[32px] font-bold'>03</p>
           </div>
-          <p className='text-white text-[40px] font-bold mb-[35px]'>신청자 정보를 <br />
+          <p className='text-white text-3xl lg:text-[40px] font-bold mb-[35px]'>신청자 정보를 <br />
             입력해 주세요!
           </p>
 
@@ -32,7 +37,7 @@ const EnterInformation = () => {
               type="text"
               placeholder="성함"
               {...register("name", { required: true, maxLength: 80 })}
-              className='text-center text-2xl text-[#b3b3b3] py-6 px-[120px] outline-none'
+              className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
             />
             <input
               type="tel"
@@ -48,7 +53,7 @@ const EnterInformation = () => {
                   message: "전화번호는 13자리를 초과할 수 없습니다"
                 }
               })}
-              className='text-center text-2xl text-[#b3b3b3] py-6 px-[120px] outline-none'
+              className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
             />
             <input
               type="text"
@@ -60,21 +65,21 @@ const EnterInformation = () => {
                   message: "유효하지 않은 이메일 주소입니다"
                 }
               })}
-              className='text-center text-2xl text-[#b3b3b3] py-6 px-[120px] outline-none'
+              className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
             />
             <div className='flex gap-5 mt-6'>
               <input
                 type="checkbox"
                 {...register("condition")}
-                className='w-6 h-6'
+                className='lg:w-6 lg:h-6 w-4 h-4'
               />
-              <p className='text-[#8c8c8c] text-2xl'>개인정보 이용 및 수집에 동의합니다.</p>
+              <p className='text-[#8c8c8c] text-lg lg:text-2xl'>개인정보 이용 및 수집에 동의합니다.</p>
             </div>
-            <button className='mt-16' type="submit">
+            <button className='mt-10 lg:mt-16' type="submit">
               <Image
                 src='/images/participate/05-but.webp'
                 alt='numberbox-1'
-                width={560}
+                width={isMobile ? 300 : 560}
                 height={70}
                 className='object-contain'
               />
