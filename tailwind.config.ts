@@ -8,6 +8,16 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "tenada": ["Tenada"],
+        "GmarketSans": ["GmarketSans"],
+      },
+      dropShadow: {
+        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 1)',
+      },
+      boxShadow: {
+        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 1)',
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
