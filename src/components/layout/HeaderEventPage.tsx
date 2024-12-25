@@ -11,7 +11,6 @@ const HeaderEventPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const handleScroll = () => {
-    // Kiểm tra xem người dùng đã cuộn quá 50px hay chưa
     console.log(window.scrollY);
     if (window.scrollY > 10) {
       setIsScrolled(true);
@@ -28,10 +27,8 @@ const HeaderEventPage = () => {
   const isMobile =
     screenSize === "xs" || screenSize === "sm" || screenSize === "md" || screenSize === "lg";
 
-  useEffect(() => {  // Gắn sự kiện onscroll
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-
-    // Dọn dẹp sự kiện khi component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
