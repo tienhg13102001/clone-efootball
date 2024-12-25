@@ -74,11 +74,11 @@ const EnterInformation = () => {
               })}
               className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
             />
-            <div className='flex gap-5 mt-6'>
+            <div className='flex items-center gap-5 mt-6'>
               <input
                 type="checkbox"
                 {...register("condition")}
-                className='lg:w-6 lg:h-6 w-4 h-4'
+                className='lg:w-6 lg:h-6 w-5 h-5'
               />
               <p className='text-[#8c8c8c] text-lg lg:text-2xl'>개인정보 이용 및 수집에 동의합니다.</p>
             </div>
