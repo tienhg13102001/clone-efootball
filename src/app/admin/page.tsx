@@ -4,6 +4,8 @@ import PhotoGrid from "@/components/share/photoGrid";
 import Table from "@/components/share/table";
 import { useAuth } from "@/contexts/AuthContext";
 import { useFirestoreUsers, type User } from "@/services/useFirestoreUsers";
+import { useFirestoreVideos } from "@/services/useFirestoreVideos";
+import { USER_ROLE } from "@/utils/constant";
 import dayjs from "dayjs";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -22,131 +24,11 @@ const columns = [
   { key: 'lastLogin', header: '로그인' },
 ];
 
-const videoData = [
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/9d769cf4877c4f4ea33a04c3596eef18_1701673510?lk3s=b59d6b55&x-expires=1734764400&x-signature=6N1Q5VhbWhVWGZ7aPHDYTs5acug%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@tvn.asia/video/7308632037978606850",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/ocS7UgwVDhAHoHMyALBQIcEvtiBhiAAogzNKNf?lk3s=b59d6b55&x-expires=1734764400&x-signature=lSBjJnKfUt7v3LEhxibSk4Smpw8%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@kayoonmam/video/7237127627834723586?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/ogAHMOAVvBOaAzE81TiZZpjziA1UBW7VIOAEY?lk3s=b59d6b55&x-expires=1734764400&x-signature=z8y8bCU2hK9OdoDyYXFkSP87le4%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@jeonjgkk_97/video/7445296175093140744?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p9-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/oEfBRWAYnEUAEABjZCQFkBSEIBDA06AbOgf6I7?lk3s=b59d6b55&x-expires=1734764400&x-signature=MM%2B7SPhK35YOUtrGdts38tI7QHo%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@roses_are_rosie/video/7440338611574164744?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p9-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/o0BECAu0iiAYBoAwIIEBOQLnf61AWwzH5APPBk?lk3s=b59d6b55&x-expires=1734764400&x-signature=H9YDrTc%2F%2FBp9100Q0RtYWf%2FoG38%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@keemshang/video/7442152422199266580?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/9d769cf4877c4f4ea33a04c3596eef18_1701673510?lk3s=b59d6b55&x-expires=1734764400&x-signature=6N1Q5VhbWhVWGZ7aPHDYTs5acug%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@tvn.asia/video/7308632037978606850",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/ocS7UgwVDhAHoHMyALBQIcEvtiBhiAAogzNKNf?lk3s=b59d6b55&x-expires=1734764400&x-signature=lSBjJnKfUt7v3LEhxibSk4Smpw8%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@kayoonmam/video/7237127627834723586?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/ogAHMOAVvBOaAzE81TiZZpjziA1UBW7VIOAEY?lk3s=b59d6b55&x-expires=1734764400&x-signature=z8y8bCU2hK9OdoDyYXFkSP87le4%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@jeonjgkk_97/video/7445296175093140744?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p9-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/oEfBRWAYnEUAEABjZCQFkBSEIBDA06AbOgf6I7?lk3s=b59d6b55&x-expires=1734764400&x-signature=MM%2B7SPhK35YOUtrGdts38tI7QHo%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@roses_are_rosie/video/7440338611574164744?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p9-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/o0BECAu0iiAYBoAwIIEBOQLnf61AWwzH5APPBk?lk3s=b59d6b55&x-expires=1734764400&x-signature=H9YDrTc%2F%2FBp9100Q0RtYWf%2FoG38%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@keemshang/video/7442152422199266580?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/9d769cf4877c4f4ea33a04c3596eef18_1701673510?lk3s=b59d6b55&x-expires=1734764400&x-signature=6N1Q5VhbWhVWGZ7aPHDYTs5acug%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@tvn.asia/video/7308632037978606850",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/ocS7UgwVDhAHoHMyALBQIcEvtiBhiAAogzNKNf?lk3s=b59d6b55&x-expires=1734764400&x-signature=lSBjJnKfUt7v3LEhxibSk4Smpw8%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@kayoonmam/video/7237127627834723586?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/ogAHMOAVvBOaAzE81TiZZpjziA1UBW7VIOAEY?lk3s=b59d6b55&x-expires=1734764400&x-signature=z8y8bCU2hK9OdoDyYXFkSP87le4%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@jeonjgkk_97/video/7445296175093140744?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p9-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/oEfBRWAYnEUAEABjZCQFkBSEIBDA06AbOgf6I7?lk3s=b59d6b55&x-expires=1734764400&x-signature=MM%2B7SPhK35YOUtrGdts38tI7QHo%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@roses_are_rosie/video/7440338611574164744?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p9-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/o0BECAu0iiAYBoAwIIEBOQLnf61AWwzH5APPBk?lk3s=b59d6b55&x-expires=1734764400&x-signature=H9YDrTc%2F%2FBp9100Q0RtYWf%2FoG38%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@keemshang/video/7442152422199266580?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/9d769cf4877c4f4ea33a04c3596eef18_1701673510?lk3s=b59d6b55&x-expires=1734764400&x-signature=6N1Q5VhbWhVWGZ7aPHDYTs5acug%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@tvn.asia/video/7308632037978606850",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/ocS7UgwVDhAHoHMyALBQIcEvtiBhiAAogzNKNf?lk3s=b59d6b55&x-expires=1734764400&x-signature=lSBjJnKfUt7v3LEhxibSk4Smpw8%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@kayoonmam/video/7237127627834723586?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/ogAHMOAVvBOaAzE81TiZZpjziA1UBW7VIOAEY?lk3s=b59d6b55&x-expires=1734764400&x-signature=z8y8bCU2hK9OdoDyYXFkSP87le4%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@jeonjgkk_97/video/7445296175093140744?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p9-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/oEfBRWAYnEUAEABjZCQFkBSEIBDA06AbOgf6I7?lk3s=b59d6b55&x-expires=1734764400&x-signature=MM%2B7SPhK35YOUtrGdts38tI7QHo%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@roses_are_rosie/video/7440338611574164744?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p9-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/o0BECAu0iiAYBoAwIIEBOQLnf61AWwzH5APPBk?lk3s=b59d6b55&x-expires=1734764400&x-signature=H9YDrTc%2F%2FBp9100Q0RtYWf%2FoG38%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@keemshang/video/7442152422199266580?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/9d769cf4877c4f4ea33a04c3596eef18_1701673510?lk3s=b59d6b55&x-expires=1734764400&x-signature=6N1Q5VhbWhVWGZ7aPHDYTs5acug%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@tvn.asia/video/7308632037978606850",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/ocS7UgwVDhAHoHMyALBQIcEvtiBhiAAogzNKNf?lk3s=b59d6b55&x-expires=1734764400&x-signature=lSBjJnKfUt7v3LEhxibSk4Smpw8%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@kayoonmam/video/7237127627834723586?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/ogAHMOAVvBOaAzE81TiZZpjziA1UBW7VIOAEY?lk3s=b59d6b55&x-expires=1734764400&x-signature=z8y8bCU2hK9OdoDyYXFkSP87le4%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@jeonjgkk_97/video/7445296175093140744?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p9-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/oEfBRWAYnEUAEABjZCQFkBSEIBDA06AbOgf6I7?lk3s=b59d6b55&x-expires=1734764400&x-signature=MM%2B7SPhK35YOUtrGdts38tI7QHo%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@roses_are_rosie/video/7440338611574164744?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p9-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/o0BECAu0iiAYBoAwIIEBOQLnf61AWwzH5APPBk?lk3s=b59d6b55&x-expires=1734764400&x-signature=H9YDrTc%2F%2FBp9100Q0RtYWf%2FoG38%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@keemshang/video/7442152422199266580?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/9d769cf4877c4f4ea33a04c3596eef18_1701673510?lk3s=b59d6b55&x-expires=1734764400&x-signature=6N1Q5VhbWhVWGZ7aPHDYTs5acug%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@tvn.asia/video/7308632037978606850",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/ocS7UgwVDhAHoHMyALBQIcEvtiBhiAAogzNKNf?lk3s=b59d6b55&x-expires=1734764400&x-signature=lSBjJnKfUt7v3LEhxibSk4Smpw8%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@kayoonmam/video/7237127627834723586?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p16-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/ogAHMOAVvBOaAzE81TiZZpjziA1UBW7VIOAEY?lk3s=b59d6b55&x-expires=1734764400&x-signature=z8y8bCU2hK9OdoDyYXFkSP87le4%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@jeonjgkk_97/video/7445296175093140744?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p9-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/oEfBRWAYnEUAEABjZCQFkBSEIBDA06AbOgf6I7?lk3s=b59d6b55&x-expires=1734764400&x-signature=MM%2B7SPhK35YOUtrGdts38tI7QHo%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@roses_are_rosie/video/7440338611574164744?is_from_webapp=1&sender_device=pc",
-  },
-  {
-    thumbnail: "https://p9-sign-sg.tiktokcdn.com/obj/tos-alisg-p-0037/o0BECAu0iiAYBoAwIIEBOQLnf61AWwzH5APPBk?lk3s=b59d6b55&x-expires=1734764400&x-signature=H9YDrTc%2F%2FBp9100Q0RtYWf%2FoG38%3D&shp=b59d6b55&shcp=-",
-    embedUrl: "https://www.tiktok.com/@keemshang/video/7442152422199266580?is_from_webapp=1&sender_device=pc",
-  },
-];
+
 
 export default function Home() {
   const { users } = useFirestoreUsers()
+  const { videos } = useFirestoreVideos()
   const [currentPage, setCurrentPage] = useState<"table" | "video">("table");
   const router = useRouter();
   const [filterColumn, setFilterColumn] = useState(columns[1].key);
@@ -157,6 +39,7 @@ export default function Home() {
   const filteredData = users.filter((item: User) => item.email.toLowerCase().includes(searchTerm.toLowerCase())).map((user: User) => (
     {
       ...user,
+      role: user.role === USER_ROLE.ADMIN ? "관리자" : "회원",
       createdAt: dayjs(user.createdAt.seconds * 1000).format('HH:mm-DD/MM/YYYY') || 0,
       birthDate: user.birthDate.seconds ? dayjs(user.birthDate.seconds * 1000).format('DD/MM/YYYY') : "=",
       lastLogin: user.lastLogin?.seconds ? dayjs(user.lastLogin.seconds * 1000).format('DD/MM/YYYY') : "-",
@@ -172,8 +55,6 @@ export default function Home() {
     })
 
   }
-
-  // console.log(filteredData)
 
 
   return (
@@ -247,7 +128,7 @@ export default function Home() {
       ) : (
         <div className="container mx-auto">
           <h1 className="text-2xl font-bold text-center border-b pb-4 mb-4">동영상</h1>
-          <PhotoGrid videos={videoData} />
+          <PhotoGrid videos={videos} />
         </div>
       )}
     </div>
