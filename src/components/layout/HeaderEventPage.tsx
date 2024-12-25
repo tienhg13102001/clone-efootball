@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React, { useCallback, useState } from 'react'
 import Menu from './Menu';
 import Link from 'next/link';
+import useScreenSize from '@/hooks/useScreenSize';
 
 const HeaderEventPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,9 +12,15 @@ const HeaderEventPage = () => {
     setIsMenuOpen((prev) => !prev);
   }, []);
 
+  const screenSize = useScreenSize();
+  const isMobile =
+    screenSize === "xs" || screenSize === "sm" || screenSize === "md" || screenSize === "lg";
+
   return (
     <div className='top-0 left-0 right-0 fixed z-50 px-8 py-5 flex justify-between lg:items-start item-center'>
-      <Image src={"/images/football-logo.webp"} alt='logo' width={100} height={100} className='lg:block hidden' />
+      <Link href="event" className='lg:block hidden'>
+        <Image src={"/images/football-logo.webp"} alt='logo' width={100} height={100} />
+      </Link>
 
 
       <div className='hidden md:flex items-center text-white gap-10'>
@@ -35,10 +42,11 @@ const HeaderEventPage = () => {
           <Link href="#" className='py-2 text-[22px] text-[#158145] border-b border-b-[#158145]' >이벤트</Link>
           <Link href="#" className='py-2 text-[22px] text-[#158145] border-b border-b-[#158145]' >참여방법</Link>
           <Link href="#" className='py-2 text-[22px] text-[#158145] border-b border-b-[#158145]' >갤러리</Link>
+          <Image src={"/images/football-logo.webp"} alt='logo' width={70} height={70} className='block lg:hidden mt-5 self-center' />
         </div>
       )}
 
-      <Image src={"/images/konami-logo.webp"} alt='konami' width={170} height={24} className='object-contain mt-2' />
+      <Image src={"/images/konami-logo.webp"} alt='konami' width={isMobile ? 100 : 170} height={24} className='object-contain mt-2' />
     </div>
   )
 }
