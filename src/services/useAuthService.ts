@@ -1,3 +1,4 @@
+import { Message } from './../../node_modules/react-hook-form/dist/types/errors.d';
 import { auth, db } from "@/config/firebase";
 import { useAuth } from "@/contexts/AuthContext";
 import { USER_ROLE } from "@/utils/constant";
@@ -37,7 +38,8 @@ export const useAuthService = () => {
             await setDoc(userRef, { ...newUserData, lastLogin: new Date() }, { merge: true });
             toast.success('Login successfully!!');
         } catch (error) {
-            console.error('Lỗi khi đăng nhập:', error);
+            console.log(error)
+            toast.error('Incorrect email or password!!');
         } finally {
             setLoading(false);
         }
