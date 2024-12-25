@@ -9,7 +9,7 @@ const Banner = () => {
     screenSize === "xs" || screenSize === "sm";
   const isTablet = screenSize === "md" || screenSize === "lg"
   return (
-    <div className="w-full bg-black bg-[url(/images/main-bg.webp)] bg-contain bg-no-repeat bg-center lg:h-[575px] xl:h-[720px] 3xl:h-[1077px]">
+    <div className="w-full bg-black bg-[url(/images/main-bg.webp)] bg-contain bg-no-repeat bg-center lg:h-[575px] xl:h-[720px] 2xl:h-[860px] 3xl:h-[1077px]">
       <div className="mx-auto lg:pt-96 pb-[100px] xxs:pb-[110px] xs:pb-[130px] md:pb-[250px] lg:pb-[298px] flex flex-col items-center">
         <div className="flex flex-col items-center relative drop-shadow-2xl">
           <div className="absolute transform translate-y-[55px] md:translate-y-[145px] lg:-translate-y-[200px] xl:-translate-y-[220px] 3xl:-translate-y-[10px] z-10 space-y-0 lg:space-y-3">
