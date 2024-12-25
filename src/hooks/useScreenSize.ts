@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState, useLayoutEffect } from "react"
 
 type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"
 
@@ -14,9 +14,10 @@ const breakpoints: Record<Breakpoint, string> = {
 }
 
 const useScreenSize = (): Breakpoint => {
-  const [screenSize, setScreenSize] = useState<Breakpoint>(getCurrentSize())
+  const [screenSize, setScreenSize] = useState<Breakpoint>("xs")
 
-  function getCurrentSize(): Breakpoint {
+  const getCurrentSize = (): Breakpoint => {
+    if (typeof window === "undefined") return "xs"
     const width = window.innerWidth
     if (width < parseInt(breakpoints.sm)) return "xs"
     if (width < parseInt(breakpoints.md)) return "sm"
@@ -27,12 +28,13 @@ const useScreenSize = (): Breakpoint => {
     return "3xl"
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleResize = () => {
       setScreenSize(getCurrentSize())
     }
-
+    handleResize()
     window.addEventListener("resize", handleResize)
+
     return () => {
       window.removeEventListener("resize", handleResize)
     }
