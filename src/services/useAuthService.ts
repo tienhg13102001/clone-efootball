@@ -37,7 +37,8 @@ export const useAuthService = () => {
             await setDoc(userRef, { ...newUserData, lastLogin: new Date() }, { merge: true });
             toast.success('Login successfully!!');
         } catch (error) {
-            console.error('Lỗi khi đăng nhập:', error);
+            console.log(error)
+            toast.error('Incorrect email or password!!');
         } finally {
             setLoading(false);
         }

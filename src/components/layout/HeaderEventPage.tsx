@@ -1,12 +1,23 @@
 'use client'
 import Image from 'next/image'
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Menu from './Menu';
 import Link from 'next/link';
 import useScreenSize from '@/hooks/useScreenSize';
+import { cn } from '@/utils/classnames';
 
 const HeaderEventPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const handleScroll = () => {
+    console.log(window.scrollY);
+    if (window.scrollY > 10) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
 
   const onChangeMobileMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
@@ -16,8 +27,17 @@ const HeaderEventPage = () => {
   const isMobile =
     screenSize === "xs" || screenSize === "sm" || screenSize === "md" || screenSize === "lg";
 
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className='top-0 left-0 right-0 fixed z-50 px-8 py-5 flex justify-between lg:items-start item-center'>
+    <div className={cn('top-0 left-0 right-0 fixed z-50 px-8 py-5 flex justify-between lg:items-start item-center', {
+      'backdrop-blur-sm shadow-md bg-white/10 transition ease-in-out': isScrolled,
+    })}>
       <Link href="event" className='lg:block hidden'>
         <Image src={"/images/football-logo.webp"} alt='logo' width={100} height={100} />
       </Link>
