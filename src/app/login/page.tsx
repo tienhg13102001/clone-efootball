@@ -16,7 +16,7 @@ const Login = () => {
             e.preventDefault();
             await handleLogin(adminId, password)
             if (auth.currentUser) {
-                router.push('/')
+                router.push('/admin')
             }
 
 

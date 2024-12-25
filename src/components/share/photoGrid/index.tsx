@@ -1,9 +1,11 @@
 'use client';
 
+import type { Video } from '@/services/useFirestoreVideos';
+import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 
 type PhotoGridProps = {
-    videos: { thumbnail: string; embedUrl: string }[];
+    videos: Video[];
 };
 
 const PhotoGrid: React.FC<PhotoGridProps> = ({ videos }) => {
@@ -49,21 +51,30 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ videos }) => {
             };
         }
     }, [selectedVideo]);
+    console.log(videos[0].thumbnail)
 
     return (
         <div>
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4 p-4">
                 {videos.map((video, index) => (
-                    <div
-                        className="cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-lg"
-                        key={index}
-                        onClick={() => handleVideoClick(video.embedUrl)}
-                    >
-                        <img
-                            src={video.thumbnail}
-                            alt={`Video ${index + 1}`}
-                            className="w-full h-full object-cover"
-                        />
+                    <div className='flex flex-col gap-5' key={index}>
+                        <div
+                            className="cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-lg"
+                            onClick={() => handleVideoClick(video.embedUrl)}
+                        >
+                            <Image
+                                src={video.thumbnail}
+                                width={502}
+                                height={720}
+                                alt={`Video ${index + 1}`}
+                                className="w-full h-auto"
+                            />
+
+                        </div>
+                        <div className='flex gap-5 items-center'>
+                            <Image src={video.post_avatar} alt='avatar' width={1080} height={1080} className='rounded-full overflow-hidden w-10 h-10' />
+                            <p>{video.post_user}</p>
+                        </div>
                     </div>
                 ))}
             </div>

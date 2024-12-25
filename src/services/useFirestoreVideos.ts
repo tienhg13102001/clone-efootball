@@ -1,49 +1,41 @@
-
-
-import { userCollectrion } from "@/config/firebase";
+import { videosCollection } from "@/config/firebase";
 import { getCountFromServer, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
-type FirestoreTimestamp = {
-  seconds: number;
-  nanoseconds: number;
-};
+export type Video = {
+  thumbnail: string;
+  embedUrl: string;
+  post_avatar: string;
+  post_user: string;
+}
 
-export type User = {
-  role: number;
-  birthDate: FirestoreTimestamp;
-  lastLogin: FirestoreTimestamp;
-  email: string;
-  applycationStats: boolean;
-  createdAt: FirestoreTimestamp;
-  informationConsent: boolean;
-  phoneNumber: string | null;
-};
-
-export const useFirestoreUsers = () => {
-  const [users, setUsers] = useState<User[]>([]); // users list
-  const [total, setTotal] = useState<number>(0); // total users
+export const useFirestoreVideos = () => {
+  const [videos, setVideos] = useState<Video[]>([]);
+  const [total, setTotal] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true); // status loading
   const [error, setError] = useState<string | null>(null); // error message
+
+
 
   // function fetch total count
   const fetchTotalCount = async () => {
     try {
-      const snapshot = await getCountFromServer(userCollectrion);
+      const snapshot = await getCountFromServer(videosCollection);
       setTotal(snapshot.data().count); // function getCountFromServer return data().count
     } catch (err) {
       console.error("Lỗi khi lấy tổng số bản ghi:", err);
     }
   };
 
+
   // Fectch all user not pagination
-  const fetchUsers = async () => {
+  const fetchVideos = async () => {
     try {
       setLoading(true);
-      console.log(userCollectrion)
-      const usersData = getDocs(userCollectrion).then((snapshot) => {
-        const usersList = snapshot.docs.map(doc => doc.data() as User);
-        setUsers(usersList);
+      console.log(videosCollection)
+      const usersData = getDocs(videosCollection).then((snapshot) => {
+        const usersList = snapshot.docs.map(doc => doc.data() as Video);
+        setVideos(usersList);
         console.log("users", usersList);
       });
       return usersData;
@@ -57,17 +49,16 @@ export const useFirestoreUsers = () => {
   };
 
   useEffect(() => {
-    fetchUsers();
+    fetchVideos();
     fetchTotalCount();
   }, [])
 
-
   return {
-    users,
+    videos,
     total,
     loading,
     error,
     fetchTotalCount,
-    fetchUsers
-  };
-};
+    fetchVideos
+  }
+}
