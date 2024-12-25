@@ -32,6 +32,9 @@ const Table: React.FC<TableProps> = ({ data, columns, rowsPerPage = 10 }) => {
             <table className="table-auto w-full border-collapse ">
                 <thead>
                     <tr >
+                        <th className=" px-4 py-2">
+                            No.
+                        </th>
                         {columns.map((col) => (
                             <th key={col.key} className=" px-4 py-2">
                                 {col.header}
@@ -42,9 +45,12 @@ const Table: React.FC<TableProps> = ({ data, columns, rowsPerPage = 10 }) => {
                 <tbody>
                     {paginatedData.map((row, rowIndex) => (
                         <tr key={rowIndex} className="text-center">
+                            <td key={rowIndex} className="border-y border-gray-300 px-4 py-2">
+                                {rowIndex + 1}
+                            </td>
                             {columns.map((col) => (
                                 <td key={col.key} className="border-y border-gray-300 px-4 py-2">
-                                    {row[col.key]}
+                                    {row[col.key] ? row[col.key] : '-'}
                                 </td>
                             ))}
                         </tr>

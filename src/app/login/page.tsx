@@ -1,16 +1,29 @@
 'use client'
-import { useState, FormEvent } from 'react';
+import { auth } from '@/config/firebase';
+import { useAuthService } from '@/services/useAuthService';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+import { FormEvent, useState } from 'react';
+
 const Login = () => {
-    const [adminId, setAdminId] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+    const { loading, handleLogin } = useAuthService();
+    const [adminId, setAdminId] = useState<string>('dev.efootballcup@gmail.com');
+    const [password, setPassword] = useState<string>('efb2025aA!');
     const router = useRouter()
 
-    const handleSubmit = (e: FormEvent) => {
-        e.preventDefault();
-        console.log('Đăng nhập với ID:', adminId, 'Mật khẩu:', password);
-        router.push('/');
+    const handleSubmit = async (e: FormEvent) => {
+        try {
+            e.preventDefault();
+            await handleLogin(adminId, password)
+            if (auth.currentUser) {
+                router.push('/')
+            }
+
+
+        } catch (error) {
+            console.error(error);
+
+        }
     };
 
     return (
@@ -37,7 +50,7 @@ const Login = () => {
                                 name="adminId"
                                 value={adminId}
                                 onChange={(e) => setAdminId(e.target.value)}
-                                className="w-full px-4 py-2 mt-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                className="w-full px-4 py-2 mt-2 border text-black border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                 required
                             />
                         </div>
@@ -51,7 +64,7 @@ const Login = () => {
                                 name="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="w-full px-4 py-2 mt-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                className="w-full px-4 py-2 mt-2 border text-black border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                 required
                             />
                         </div>
@@ -59,7 +72,8 @@ const Login = () => {
                     <div className='w-full flex items-center justify-center'>
                         <button
                             type="submit"
-                            className="w-36 py-2 bg-black text-white  hover:bg-gray-800 mx-auto"
+                            disabled={loading}
+                            className="w-36 py-2 bg-black text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-800 mx-auto"
                         >
                             관리자 로그인
                         </button>
