@@ -1,15 +1,15 @@
 'use client'
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { auth } from '@/config/firebase';
 import {
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged,
   User,
   type UserCredential
 } from 'firebase/auth';
-import { auth } from '@/config/firebase';
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 // declare type AuthContextType
 interface AuthContextType {
@@ -17,6 +17,8 @@ interface AuthContextType {
   signup: (email: string, password: string) => Promise<UserCredential>;
   login: (email: string, password: string) => Promise<UserCredential>;
   logout: () => Promise<void>;
+  isAuthenticated: boolean;
+  loading: boolean;
 }
 
 // create AuthContext with type AuthContextType
@@ -39,6 +41,7 @@ interface AuthProviderProps {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+
 
   // add new account
   const signup = (email: string, password: string): Promise<UserCredential> => {
@@ -64,12 +67,17 @@ export function AuthProvider({ children }: AuthProviderProps) {
     return unsubscribe;
   }, []);
 
+  const isAuthenticated = !!currentUser;
+
   const value: AuthContextType = {
     currentUser,
     signup,
     login,
-    logout
+    logout,
+    isAuthenticated,
+    loading
   };
+
 
   return (
     <AuthContext.Provider value={value}>
