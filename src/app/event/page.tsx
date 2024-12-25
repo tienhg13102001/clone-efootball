@@ -7,7 +7,7 @@ import EnterInformation from './_components/EnterInformation'
 
 const EventPage = () => {
   return (
-    <div className='w-full bg-white'>
+    <div className='w-full bg-white text-white'>
       <Banner />
       <EventCard />
       <ParticipateEvent />
