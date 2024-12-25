@@ -1,8 +1,8 @@
-import Banner from '@/components/event/Banner'
-import EnterInformation from '@/components/event/EnterInformation'
-import EventCard from '@/components/event/EventCard'
-import ParticipateEvent from '@/components/event/ParticipateEvent'
 import React from 'react'
+import Banner from './_components/Banner'
+import EventCard from './_components/EventCard'
+import ParticipateEvent from './_components/ParticipateEvent'
+import EnterInformation from './_components/EnterInformation'
 
 
 const EventPage = () => {
