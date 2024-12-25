@@ -154,11 +154,6 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const { logout } = useAuth()
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // const filteredData = dummyData.filter((item: any) =>
-  //   item[filterColumn]?.toString().toLowerCase().includes(searchTerm.toLowerCase())
-  // );
-
   const filteredData = users.filter((item: User) => item.email.toLowerCase().includes(searchTerm.toLowerCase())).map((user: User) => (
     {
       ...user,
