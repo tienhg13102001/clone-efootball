@@ -12,7 +12,6 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ videos }) => {
     const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
     const handleVideoClick = (embedUrl: string) => {
-        console.log('Clicked video:', embedUrl);
         setSelectedVideo(embedUrl);
     };
 
@@ -51,7 +50,6 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ videos }) => {
             };
         }
     }, [selectedVideo]);
-    console.log(videos[0].thumbnail)
 
     return (
         <div>
