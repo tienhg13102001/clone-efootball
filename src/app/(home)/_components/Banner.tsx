@@ -26,7 +26,7 @@ const Banner = () => {
           </p>
 
           <Image
-            src={"/images/soccer-ball.png"}
+            src={"/images/soccer-ball.webp"}
             alt=";"
             width={504}
             height={340}

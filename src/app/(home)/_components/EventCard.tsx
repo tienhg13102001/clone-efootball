@@ -41,7 +41,7 @@ const EventCard = () => {
                 e풋볼컵 생방송 관람 인증샷 올리고
                 <p className="font-bold text-[#d8f700]">친구랑 맨체스터로 여행 가자!</p>
               </div>
-              <Image src={"/images/02-all-img.png"} alt="" width={isLapTop ? 693 : 983} height={558} className="mt-2 md:mt-[65px] mb-[180px] md:mb-[175px] object-contain" />
+              <Image src={"/images/02-all-img.webp"} alt="" width={isLapTop ? 693 : 983} height={558} className="mt-2 md:mt-[65px] mb-[180px] md:mb-[175px] object-contain" />
             </div>
             <Image
               src={"/images/do-01-airplane.webp"}
