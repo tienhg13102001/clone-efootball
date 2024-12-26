@@ -32,6 +32,12 @@ export default {
         "2xl": "1440px",
         "3xl": "1920px",
       },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "32px",
+        },
+      },
     },
   },
   plugins: [],
