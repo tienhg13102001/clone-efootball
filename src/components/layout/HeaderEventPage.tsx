@@ -38,7 +38,7 @@ const HeaderEventPage = () => {
     <header className={cn('top-0 left-0 right-0 fixed z-50', {
       'backdrop-blur-sm shadow-md bg-white/10 transition ease-in-out': isScrolled,
     })}>
-      <div className='container max-w-[1920px] mx-auto'>
+      <div className='container 2xl:max-w-[1500px] 3xl:max-w-[1920px] mx-auto'>
         <nav className='py-5 flex justify-between lg:items-start item-center'>
           <Link href="event" className='lg:block hidden'>
             <Image src={"/images/football-logo.webp"} alt='logo' width={100} height={100} />

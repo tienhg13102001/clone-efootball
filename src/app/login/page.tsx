@@ -14,15 +14,14 @@ const Login = () => {
     const handleSubmit = async (e: FormEvent) => {
         try {
             e.preventDefault();
-            await handleLogin(adminId, password)
+            await handleLogin(adminId, password);
             if (auth.currentUser) {
-                router.push('/admin')
+                router.push('/admin');
+                setAdminId('');
+                setPassword('');
             }
-
-
         } catch (error) {
             console.error(error);
-
         }
     };
 
