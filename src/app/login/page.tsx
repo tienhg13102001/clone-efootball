@@ -14,15 +14,14 @@ const Login = () => {
     const handleSubmit = async (e: FormEvent) => {
         try {
             e.preventDefault();
-            await handleLogin(adminId, password)
+            await handleLogin(adminId, password);
             if (auth.currentUser) {
-                router.push('/admin')
+                router.push('/admin');
+                setAdminId('');
+                setPassword('');
             }
-
-
         } catch (error) {
             console.error(error);
-
         }
     };
 
@@ -31,10 +30,11 @@ const Login = () => {
             <div className="bg-white p-8 rounded-lg shadow-lg w-[600px] h-[500px]">
                 <div className="flex justify-center mb-6">
                     <Image
-                        src="/images/logo.png"
+                        src="/favicon.ico"
                         alt="Football Logo"
-                        width={120}
+                        width={60}
                         height={60}
+                        className='object-contain'
                     />
                 </div>
                 <h2 className="text-center text-2xl font-semibold mb-6 text-gray-600">관리자 로그인</h2>

@@ -62,7 +62,7 @@ export default function Home() {
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <div className="text-xl font-bold">
-          <Image src="/images/logo.png" alt="Football Logo" width={120} height={60} />
+          <Image src="/favicon.ico" alt="Football Logo" width={60} height={60} className="object-contain" />
         </div>
         <div className="flex items-end gap-3 flex-col">
           <h1 className="font-bold text-xl text-end">관리자님 환영합니다.</h1>

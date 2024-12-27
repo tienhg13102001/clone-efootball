@@ -11,11 +11,11 @@ const FooterEventPage = () => {
     <div className='container max-w-[1700px] mx-auto pb-[150px]'>
       <div className='flex flex-col items-center'>
         <Image src='/images/logo/rights-logo-01.webp' alt='rights-logo-01' height={isMobile ? 70 : 91} width={isMobile ? 79 : 82} className='object-contain mb-3' />
-        <div className='flex gap-4 mb-[38px]'>
+        <div className='flex gap-2 md:gap-4 mb-[38px]'>
           <Image src='/images/logo/rights-logo-02.webp' alt='rights-logo-02' height={isMobile ? 30 : 40} width={isMobile ? 20 : 27} className='object-contain' />
-          <Image src='/images/logo/rights-logo-03.webp' alt='rights-logo-03' height={isMobile ? 30 : 40} width={isMobile ? 73 : 98} className='object-contain' />
+          <Image src='/images/logo/rights-logo-03.webp' alt='rights-logo-03' height={isMobile ? 30 : 40} width={isMobile ? 63 : 98} className='object-contain' />
           <Image src='/images/logo/rights-logo-04.webp' alt='rights-logo-04' height={isMobile ? 30 : 37} width={isMobile ? 20 : 24} className='object-contain' />
-          <Image src='/images/logo/rights-logo-05.webp' alt='rights-logo-05' height={isMobile ? 30 : 40} width={isMobile ? 110 : 147} className='object-contain' />
+          <Image src='/images/logo/rights-logo-05.webp' alt='rights-logo-05' height={isMobile ? 30 : 40} width={isMobile ? 100 : 147} className='object-contain' />
           <Image src='/images/logo/rights-logo-06.webp' alt='rights-logo-06' height={isMobile ? 30 : 58} width={isMobile ? 30 : 58} className='object-contain' />
           <Image src='/images/logo/rights-logo-07.webp' alt='rights-logo-07' height={isMobile ? 30 : 54} width={isMobile ? 30 : 54} className='object-contain' />
         </div>
