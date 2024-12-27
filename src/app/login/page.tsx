@@ -7,8 +7,8 @@ import { FormEvent, useState } from 'react';
 
 const Login = () => {
     const { loading, handleLogin } = useAuthService();
-    const [adminId, setAdminId] = useState<string>('dev.efootballcup@gmail.com');
-    const [password, setPassword] = useState<string>('efb2025aA!');
+    const [adminId, setAdminId] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
     const router = useRouter()
 
     const handleSubmit = async (e: FormEvent) => {
