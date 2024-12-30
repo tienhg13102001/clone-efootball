@@ -20,7 +20,7 @@ const columns = [
   { key: 'informationConsent', header: '정보동의' },
   { key: 'applycationStats', header: '통계' },
   { key: 'createdAt', header: '생성됨' },
-  { key: 'birthDate', header: '생년월일' },
+  { key: 'postStatus', header: '게시 ON/OFF' },
   { key: 'lastLogin', header: '로그인' },
 ];
 
@@ -28,6 +28,7 @@ const columns = [
 
 export default function Home() {
   const { users } = useFirestoreUsers()
+  console.log("🚀 ~ Home ~ users:", users)
   const { videos } = useFirestoreVideos()
   const [currentPage, setCurrentPage] = useState<"table" | "video">("table");
   const router = useRouter();
@@ -39,9 +40,9 @@ export default function Home() {
   const filteredData = users.filter((item: User) => item.email.toLowerCase().includes(searchTerm.toLowerCase())).map((user: User) => (
     {
       ...user,
+      postStatus: user.postStatus ? "ON" : "OFF",
       role: user.role === USER_ROLE.ADMIN ? "관리자" : "회원",
       createdAt: dayjs(user.createdAt.seconds * 1000).format('HH:mm-DD/MM/YYYY') || 0,
-      birthDate: user.birthDate.seconds ? dayjs(user.birthDate.seconds * 1000).format('DD/MM/YYYY') : "=",
       lastLogin: user.lastLogin?.seconds ? dayjs(user.lastLogin.seconds * 1000).format('DD/MM/YYYY') : "-",
     }
   ))

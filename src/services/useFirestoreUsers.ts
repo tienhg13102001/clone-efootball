@@ -9,7 +9,7 @@ type FirestoreTimestamp = {
 
 export type User = {
   role: number
-  birthDate: FirestoreTimestamp
+  postStatus: boolean
   lastLogin: FirestoreTimestamp
   email: string
   applycationStats: boolean
