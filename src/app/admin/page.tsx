@@ -28,7 +28,6 @@ const columns = [
 
 export default function Home() {
   const { users } = useFirestoreUsers()
-  console.log("🚀 ~ Home ~ users:", users)
   const { videos } = useFirestoreVideos()
   const [currentPage, setCurrentPage] = useState<"table" | "video">("table");
   const router = useRouter();
