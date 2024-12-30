@@ -1,5 +1,5 @@
 import { userCollectrion } from "@/config/firebase"
-import { getCountFromServer, getDocs } from "firebase/firestore"
+import { doc, getCountFromServer, getDocs, setDoc } from "firebase/firestore"
 import { useEffect, useState } from "react"
 
 type FirestoreTimestamp = {
@@ -51,6 +51,16 @@ export const useFirestoreUsers = () => {
     }
   }
 
+  // push user to firestore
+  const pushUser = async (user: Partial<User>) => {
+    try {
+      await setDoc(doc(userCollectrion, user.email), user)
+    } catch (err) {
+      console.error("Error when push user data:", err)
+      setError("Error when push user data")
+    }
+  }
+
   useEffect(() => {
     fetchUsers()
     fetchTotalCount()
@@ -63,5 +73,6 @@ export const useFirestoreUsers = () => {
     error,
     fetchTotalCount,
     fetchUsers,
+    pushUser
   }
 }
