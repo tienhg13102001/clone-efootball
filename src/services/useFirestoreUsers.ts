@@ -1,5 +1,5 @@
 import { userCollection } from "@/config/firebase"
-import { addDoc, doc, getCountFromServer, getDocs, setDoc } from "firebase/firestore"
+import { addDoc, getCountFromServer, getDocs } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
 
