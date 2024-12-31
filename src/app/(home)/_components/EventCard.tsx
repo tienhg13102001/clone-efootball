@@ -225,7 +225,7 @@ const EventCard = () => {
           alt=""
           width={isMobile ? 202 : 639}
           height={isMobile ? 200 : 792}
-          className="absolute bottom-1 right-0  xl:translate-y-1/3 translate-x-2/3 z-10 object-contain"
+          className="absolute max-md:bottom-1 xl:top-0 right-0  xl:translate-y-1/3 translate-x-2/3 z-10 object-contain"
         />
         <Image
           src={"/images/05-box-patterns.webp"}
