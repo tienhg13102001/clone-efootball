@@ -1,24 +1,65 @@
 'use client'
 import useScreenSize from '@/hooks/useScreenSize';
+import { useFirestoreUsers } from '@/services/useFirestoreUsers';
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 interface FormData {
   name: string;
-  phone: string;
+  phoneNumber: string;
   email: string;
+  birthDate: string;
+  website: string;
   condition?: boolean;
 }
 
 const EnterInformation = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
-  const onSubmit = (data: FormData) => console.log(data);
-  console.log(errors);
+  const { pushUser } = useFirestoreUsers();
+  const [showModal, setShowModal] = useState(false);
+
+  const onSubmit = async (data: FormData) => {
+    try {
+      if (!data.condition) {
+        toast.error("Please agree to the terms and conditions");
+        return
+      }
+      delete data.condition;
+      const response = await pushUser({
+        ...data,
+        role: 0,
+        postStatus: false,
+        applycationStats: false,
+        informationConsent: true,
+        createdAt: new Date()
+      });
+      if (response) {
+        setShowModal(true)
+      }
+    } catch (error) {
+      console.error("Error when push user data:", error)
+      toast.error("Error when push user data")
+    }
+  };
+
 
   const screenSize = useScreenSize();
   const isMobile =
     screenSize === "xs" || screenSize === "sm" || screenSize === "md";
+
+  function timeoutToCloseModal() {
+    setTimeout(() => {
+      setShowModal(false)
+    }, 3000)
+  }
+
+  useEffect(() => {
+    if (showModal) {
+      timeoutToCloseModal()
+    }
+  }, [showModal])
 
   return (
     <div className='w-full bg-black min-h-screen bg-[url("/images/information/08-rights-bg.webp")] bg-no-repeat bg-contain h-[300px] lg:h-[1100px]'>
@@ -47,9 +88,16 @@ const EnterInformation = () => {
               className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
             />
             <input
+              type="text"
+              placeholder='생년월일'
+              {...register("birthDate",)}
+              className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
+            />
+
+            <input
               type="tel"
               placeholder="연락처"
-              {...register("phone", {
+              {...register("phoneNumber", {
                 required: "전화번호는 필수입니다",
                 pattern: {
                   value: /^01[0-9]{1}-?[0-9]{3,4}-?[0-9]{4}$/,
@@ -74,6 +122,18 @@ const EnterInformation = () => {
               })}
               className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
             />
+            <input
+              type="url"
+              placeholder="URL"
+              {...register("website", {
+                required: "URL을 입력해 주세요",
+                pattern: {
+                  value: /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/,
+                  message: "유효하지 않은 URL입니다"
+                }
+              })}
+              className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
+            />
             <div className='flex items-center gap-5 mt-6'>
               <input
                 type="checkbox"
@@ -82,7 +142,7 @@ const EnterInformation = () => {
               />
               <p className='text-[#8c8c8c] text-lg lg:text-2xl'>개인정보 이용 및 수집에 동의합니다.</p>
             </div>
-            <button className='mt-10 lg:mt-16' type="submit">
+            <button className='mt-10 lg:mt-16 hover:opacity-90' type="submit">
               <Image
                 src='/images/participate/07-but.webp'
                 alt='numberbox-1'
@@ -92,7 +152,15 @@ const EnterInformation = () => {
               />
             </button>
           </form>
-
+          {showModal && (
+            <div className='fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50' onClick={() => setShowModal(false)}  >
+              <div className='bg-white py-8 px-16 md:px-36 shadow-lg text-center border-2 border-black' onClick={(e) => e.stopPropagation()} >
+                <p className='text-2xl text-black font-bold mb-4'>이벤트 응모 완료! <br />
+                  감사합니다</p>
+                <p className='text-xl text-black font-bold mt-2'>(Complete!)</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
