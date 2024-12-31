@@ -84,7 +84,9 @@ const EnterInformation = () => {
             <input
               type="text"
               placeholder="성함"
-              {...register("name", { required: true, maxLength: 80 })}
+              {...register("name", {
+                // required: true, maxLength: 80 
+              })}
               className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
             />
             <input
@@ -98,15 +100,15 @@ const EnterInformation = () => {
               type="tel"
               placeholder="연락처"
               {...register("phoneNumber", {
-                required: "전화번호는 필수입니다",
-                pattern: {
-                  value: /^01[0-9]{1}-?[0-9]{3,4}-?[0-9]{4}$/,
-                  message: "유효하지 않은 전화번호입니다"
-                },
-                maxLength: {
-                  value: 13,
-                  message: "전화번호는 13자리를 초과할 수 없습니다"
-                }
+                // required: "전화번호는 필수입니다",
+                // pattern: {
+                //   value: /^01[0-9]{1}-?[0-9]{3,4}-?[0-9]{4}$/,
+                //   message: "유효하지 않은 전화번호입니다"
+                // },
+                // maxLength: {
+                //   value: 13,
+                //   message: "전화번호는 13자리를 초과할 수 없습니다"
+                // }
               })}
               className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
             />
@@ -114,11 +116,11 @@ const EnterInformation = () => {
               type="text"
               placeholder="이메일"
               {...register("email", {
-                required: "이메일은 필수입니다",
-                pattern: {
-                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                  message: "유효하지 않은 이메일 주소입니다"
-                }
+                // required: "이메일은 필수입니다",
+                // pattern: {
+                //   value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                //   message: "유효하지 않은 이메일 주소입니다"
+                // }
               })}
               className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
             />
@@ -126,11 +128,11 @@ const EnterInformation = () => {
               type="url"
               placeholder="URL"
               {...register("website", {
-                required: "URL을 입력해 주세요",
-                pattern: {
-                  value: /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/,
-                  message: "유효하지 않은 URL입니다"
-                }
+                // required: "URL을 입력해 주세요",
+                // pattern: {
+                //   value: /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/,
+                //   message: "유효하지 않은 URL입니다"
+                // }
               })}
               className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
             />
