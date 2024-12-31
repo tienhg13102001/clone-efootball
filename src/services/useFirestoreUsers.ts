@@ -1,10 +1,22 @@
-import { userCollectrion } from "@/config/firebase"
-import { doc, getCountFromServer, getDocs, setDoc } from "firebase/firestore"
+import { userCollection } from "@/config/firebase"
+import { addDoc, doc, getCountFromServer, getDocs, setDoc } from "firebase/firestore"
 import { useEffect, useState } from "react"
+import { toast } from "react-toastify"
 
 type FirestoreTimestamp = {
   seconds: number
   nanoseconds: number
+}
+
+export type UserDto = {
+  role: number
+  postStatus: boolean
+  lastLogin: Date
+  email: string
+  applycationStats: boolean
+  createdAt: Date
+  informationConsent: boolean
+  phoneNumber: string | null
 }
 
 export type User = {
@@ -27,7 +39,7 @@ export const useFirestoreUsers = () => {
   // function fetch total count
   const fetchTotalCount = async () => {
     try {
-      const snapshot = await getCountFromServer(userCollectrion)
+      const snapshot = await getCountFromServer(userCollection)
       setTotal(snapshot.data().count) // function getCountFromServer return data().count
     } catch (err) {
       console.error("Lỗi khi lấy tổng số bản ghi:", err)
@@ -38,7 +50,7 @@ export const useFirestoreUsers = () => {
   const fetchUsers = async () => {
     try {
       setLoading(true)
-      const usersData = getDocs(userCollectrion).then((snapshot) => {
+      const usersData = getDocs(userCollection).then((snapshot) => {
         const usersList = snapshot.docs.map((doc) => doc.data() as User)
         setUsers(usersList)
       })
@@ -52,10 +64,13 @@ export const useFirestoreUsers = () => {
   }
 
   // push user to firestore
-  const pushUser = async (user: Partial<User>) => {
+  const pushUser = async (user: Partial<UserDto>) => {
     try {
-      await setDoc(doc(userCollectrion, user.email), user)
+      const data = await addDoc(userCollection, user)
+      console.log(data)
+      return data
     } catch (err) {
+      toast.error("Error when push user data")
       console.error("Error when push user data:", err)
       setError("Error when push user data")
     }

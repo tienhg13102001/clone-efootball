@@ -1,30 +1,65 @@
 'use client'
 import useScreenSize from '@/hooks/useScreenSize';
+import { useFirestoreUsers } from '@/services/useFirestoreUsers';
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 interface FormData {
   name: string;
-  phone: string;
+  phoneNumber: string;
   email: string;
-  birthday: string;
+  birthDate: string;
   website: string;
   condition?: boolean;
 }
 
 const EnterInformation = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+  const { pushUser } = useFirestoreUsers();
   const [showModal, setShowModal] = useState(false);
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    setShowModal(true);
+  const onSubmit = async (data: FormData) => {
+    try {
+      if (!data.condition) {
+        toast.error("Please agree to the terms and conditions");
+        return
+      }
+      delete data.condition;
+      const response = await pushUser({
+        ...data,
+        role: 0,
+        postStatus: false,
+        applycationStats: false,
+        informationConsent: true,
+        createdAt: new Date()
+      });
+      if (response) {
+        setShowModal(true)
+      }
+    } catch (error) {
+      console.error("Error when push user data:", error)
+      toast.error("Error when push user data")
+    }
   };
+
 
   const screenSize = useScreenSize();
   const isMobile =
     screenSize === "xs" || screenSize === "sm" || screenSize === "md";
+
+  function timeoutToCloseModal() {
+    setTimeout(() => {
+      setShowModal(false)
+    }, 3000)
+  }
+
+  useEffect(() => {
+    if (showModal) {
+      timeoutToCloseModal()
+    }
+  }, [showModal])
 
   return (
     <div className='w-full bg-black min-h-screen bg-[url("/images/information/08-rights-bg.webp")] bg-no-repeat bg-contain h-[300px] lg:h-[1100px]'>
@@ -55,14 +90,14 @@ const EnterInformation = () => {
             <input
               type="text"
               placeholder='생년월일'
-              {...register("birthday",)}
+              {...register("birthDate",)}
               className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
             />
 
             <input
               type="tel"
               placeholder="연락처"
-              {...register("phone", {
+              {...register("phoneNumber", {
                 required: "전화번호는 필수입니다",
                 pattern: {
                   value: /^01[0-9]{1}-?[0-9]{3,4}-?[0-9]{4}$/,
@@ -102,7 +137,7 @@ const EnterInformation = () => {
             <div className='flex items-center gap-5 mt-6'>
               <input
                 type="checkbox"
-                {...register("condition", { required: "개인정보 이용 및 수집 동의는 필수입니다." })}
+                {...register("condition")}
                 className='lg:w-6 lg:h-6 w-5 h-5'
               />
               <p className='text-[#8c8c8c] text-lg lg:text-2xl'>개인정보 이용 및 수집에 동의합니다.</p>
