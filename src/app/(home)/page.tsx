@@ -1,21 +1,18 @@
-import React from 'react'
 import Banner from './_components/Banner'
 import EventCard from './_components/EventCard'
 import ParticipateEvent from './_components/ParticipateEvent'
-import HeaderEventPage from '@/components/layout/HeaderEventPage'
-import FooterEventPage from '@/components/layout/FooterEventPage'
 
 
 const EventPage = () => {
   return (
-    <div className='flex flex-col w-screen overflow-x-hidden bg-black'>
-      <HeaderEventPage />
-      <div className='w-full bg-white text-white'>
+    <div className='flex flex-col w-screen overflow-x-hidden bg-[#1b1e9d]'>
+      {/* <HeaderEventPage /> */}
+      <div className='w-full text-white'>
         <Banner />
         <EventCard />
         <ParticipateEvent />
       </div>
-      <FooterEventPage />
+      {/* <FooterEventPage /> */}
     </div>
   )
 }
