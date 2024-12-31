@@ -17,7 +17,7 @@ const ParticipateEvent = () => {
     enterInfoElement?.scrollIntoView({ behavior: 'smooth' })
   }
   return (
-    <div className='w-full bg-[#1b1e9d]'>
+    <div className='w-full bg-[#14189E]'>
       <div className='container max-w-[1000px] 3xl:max-w-[1250px] mx-auto relative'>
         <Image
           src={"/images/information/do-04-con.webp"}
