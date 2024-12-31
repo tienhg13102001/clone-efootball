@@ -1,20 +1,26 @@
 'use client'
 import useScreenSize from '@/hooks/useScreenSize';
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 
 interface FormData {
   name: string;
   phone: string;
   email: string;
+  birthday: string;
+  website: string;
   condition?: boolean;
 }
 
 const EnterInformation = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
-  const onSubmit = (data: FormData) => console.log(data);
-  console.log(errors);
+  const [showModal, setShowModal] = useState(false);
+
+  const onSubmit = (data: FormData) => {
+    console.log(data);
+    setShowModal(true);
+  };
 
   const screenSize = useScreenSize();
   const isMobile =
@@ -47,6 +53,13 @@ const EnterInformation = () => {
               className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
             />
             <input
+              type="text"
+              placeholder='생년월일'
+              {...register("birthday",)}
+              className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
+            />
+
+            <input
               type="tel"
               placeholder="연락처"
               {...register("phone", {
@@ -74,15 +87,27 @@ const EnterInformation = () => {
               })}
               className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
             />
+            <input
+              type="url"
+              placeholder="URL"
+              {...register("website", {
+                required: "URL을 입력해 주세요",
+                pattern: {
+                  value: /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/,
+                  message: "유효하지 않은 URL입니다"
+                }
+              })}
+              className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
+            />
             <div className='flex items-center gap-5 mt-6'>
               <input
                 type="checkbox"
-                {...register("condition")}
+                {...register("condition", { required: "개인정보 이용 및 수집 동의는 필수입니다." })}
                 className='lg:w-6 lg:h-6 w-5 h-5'
               />
               <p className='text-[#8c8c8c] text-lg lg:text-2xl'>개인정보 이용 및 수집에 동의합니다.</p>
             </div>
-            <button className='mt-10 lg:mt-16' type="submit">
+            <button className='mt-10 lg:mt-16 hover:opacity-90' type="submit">
               <Image
                 src='/images/participate/07-but.webp'
                 alt='numberbox-1'
@@ -92,7 +117,15 @@ const EnterInformation = () => {
               />
             </button>
           </form>
-
+          {showModal && (
+            <div className='fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50' onClick={() => setShowModal(false)}  >
+              <div className='bg-white py-8 px-16 md:px-36 shadow-lg text-center border-2 border-black' onClick={(e) => e.stopPropagation()} >
+                <p className='text-2xl text-black font-bold mb-4'>이벤트 응모 완료! <br />
+                  감사합니다</p>
+                <p className='text-xl text-black font-bold mt-2'>(Complete!)</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

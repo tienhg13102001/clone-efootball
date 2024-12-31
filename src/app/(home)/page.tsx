@@ -2,7 +2,6 @@ import React from 'react'
 import Banner from './_components/Banner'
 import EventCard from './_components/EventCard'
 import ParticipateEvent from './_components/ParticipateEvent'
-import EnterInformation from './_components/EnterInformation'
 import HeaderEventPage from '@/components/layout/HeaderEventPage'
 import FooterEventPage from '@/components/layout/FooterEventPage'
 
@@ -15,7 +14,6 @@ const EventPage = () => {
         <Banner />
         <EventCard />
         <ParticipateEvent />
-        <EnterInformation />
       </div>
       <FooterEventPage />
     </div>
