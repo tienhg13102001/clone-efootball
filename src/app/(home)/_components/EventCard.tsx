@@ -32,7 +32,7 @@ const EventCard = () => {
   const isTablet = screenSize === "md" || screenSize === "lg"
   const isLapTop = screenSize === "2xl"
   return (
-    <div className="w-full pt-[13px] bg-black">
+    <div className="w-full pt-[13px] bg-transparent">
       <div className="container max-w-[1000px] 3xl:max-w-[1250px] mx-auto">
         <div className='pt-6 mb-[76px] bg-[url("/images/02-box-patterns.webp")] bg-contain bg-center bg-no-repeat rounded-3x'>
           <div className="flex flex-col items-centerl relative">
