@@ -16,7 +16,7 @@ interface FormData {
 }
 
 const EnterInformation = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+  const { register, handleSubmit } = useForm<FormData>();
   const { pushUser } = useFirestoreUsers();
   const [showModal, setShowModal] = useState(false);
 
