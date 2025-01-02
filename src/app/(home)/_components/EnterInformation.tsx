@@ -59,16 +59,16 @@ const EnterInformation = ({ ref }: { ref: (el: HTMLDivElement | null) => void })
   }, [showModal])
 
   return (
-    <div className="w-full relative" ref={ref}>
+    <div className="relative w-full" ref={ref}>
       <Image
         src={"/images/information/do-05-shoes.webp"}
         alt=""
         width={isMobile ? 300 : 680}
         height={710}
-        className="absolute right-full -top-full translate-y-full z-50 hidden object-contain 3xl:block"
+        className="absolute bottom-full right-full z-50 hidden translate-y-1/2 object-contain 3xl:block"
       />
       <div className="container mx-auto max-w-[1250px]">
-        <div className="flex flex-col items-center mt-4">
+        <div className="mt-4 flex flex-col items-center">
           <div className="relative mb-[39px]">
             <Image src="/images/participate/05-titlebox.webp" alt="" width={110} height={52} />
             <p className="absolute left-[33%] top-1 text-[32px] font-extrabold text-[#1a1a1a]">
@@ -142,7 +142,10 @@ const EnterInformation = ({ ref }: { ref: (el: HTMLDivElement | null) => void })
                 개인정보 이용 및 수집에 동의합니다.
               </p>
             </div>
-            <button className="mt-10 hover:opacity-90 lg:mt-12 mb-[100px] lg:mb-[207px]" type="submit">
+            <button
+              className="mb-[100px] mt-10 hover:opacity-90 lg:mb-[207px] lg:mt-12"
+              type="submit"
+            >
               <Image
                 src="/images/participate/07-but.webp"
                 alt="numberbox-1"
