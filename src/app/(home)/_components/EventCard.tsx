@@ -66,7 +66,7 @@ const EventCard = () => {
       {/*  */}
       <div className="my-5 xl:my-[44px] flex flex-col items-center relative">
         <Image src={"/images/event-subtitle-2.webp"} alt="03-box-pattern" width={1175} height={119} />
-        <p className="text-sm xl:text-[50px]/[1em] 2xl:text-[46px]/[1em] mt-[2px] xl:mt-2 font-bold absolute top-1/2 -translate-y-1/2 text-black">
+        <p className="text-sm xl:text-[46px]/[1em] 2xl:text-[42px]/[1em] mt-[2px] xl:mt-2 font-bold absolute top-1/2 -translate-y-1/2 text-black">
           이벤트 1, 2, 3 중 <span className="text-[#253ce8]">하나만</span> 참여해도 당첨 가능!
         </p>
       </div>
@@ -239,7 +239,7 @@ const EventCard = () => {
       {/*  */}
       <div className="my-5 xl:my-[44px] flex flex-col items-center relative">
         <Image src={"/images/event-subtitle-2.webp"} alt="03-box-pattern" width={1175} height={119} />
-        <p className="text-sm xl:text-[50px]/[1em] 2xl:text-[46px]/[1em] mt-[2px] xl:mt-2 font-bold absolute top-1/2 -translate-y-1/2 text-black">
+        <p className="text-sm xl:text-[46px]/[1em] 2xl:text-[42px]/[1em] mt-[2px] xl:mt-2 font-bold absolute top-1/2 -translate-y-1/2 text-black">
           이벤트 1, 2, 3 중 <span className="text-[#253ce8]">하나만</span> 참여해도 당첨 가능!
         </p>
       </div>
