@@ -157,10 +157,8 @@ const EnterInformation = () => {
             </form>
             {showModal && (
               <div className='fixed inset-0 bg-[#1b1e9d] bg-opacity-50 flex justify-center items-center z-50' onClick={() => setShowModal(false)}  >
-                <div className='bg-white py-8 px-16 md:px-36 shadow-lg text-center border-2 border-black' onClick={(e) => e.stopPropagation()} >
-                  <p className='text-2xl text-black font-bold mb-4'>이벤트 응모 완료! <br />
-                    감사합니다</p>
-                  <p className='text-xl text-black font-bold mt-2'>(Complete!)</p>
+                <div className='bg-white pt-8 pb-4 px-16 md:px-36 shadow-lg text-center border-2 border-black' onClick={(e) => e.stopPropagation()} >
+                  <p className='text-2xl text-black font-bold mb-4'>이벤트 응모 완료! </p>
                 </div>
               </div>
             )}
