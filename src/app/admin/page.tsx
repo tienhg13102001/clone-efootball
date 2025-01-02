@@ -31,12 +31,14 @@ export default function Home() {
   const { videos } = useFirestoreVideos()
   const [currentPage, setCurrentPage] = useState<"table" | "video">("table");
   const router = useRouter();
-  const [filterColumn, setFilterColumn] = useState(columns[1].key);
+  const [filterColumn, setFilterColumn] = useState(columns[0].key);
   const [searchInput, setSearchInput] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const { logout } = useAuth()
 
-  const filteredData = users.filter((item: User) => item.email.toLowerCase().includes(searchTerm.toLowerCase())).map((user: User) => (
+  console.log(filterColumn, searchTerm)
+
+  const filteredData = users.filter((item: any) => item[`${filterColumn}`]?.toLowerCase().includes(searchTerm.toLowerCase())).map((user: User) => (
     {
       ...user,
       postStatus: user.postStatus ? "ON" : "OFF",
@@ -91,12 +93,13 @@ export default function Home() {
         <div className="container mx-auto">
           <h1 className="text-2xl font-bold text-center border-b pb-4 mb-4">응모자 정보</h1>
           <div className="flex items-center my-8">
+
             <select
-              className="border p-2 mr-2 w-52"
+              className="border p-2 mr-2 w-52 bg-[length:16px] bg-[center_right_0.75rem] bg-no-repeat bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke-width%3D%221.5%22%20stroke%3D%22currentColor%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M19.5%208.25l-7.5%207.5-7.5-7.5%22%2F%3E%3C%2Fsvg%3E')] appearance-none"
               value={filterColumn}
               onChange={(e) => setFilterColumn(e.target.value)}
             >
-              {columns.slice(1).map((col) => (
+              {columns.map((col) => (
                 <option key={col.key} value={col.key}>
                   {col.header}
                 </option>
