@@ -62,8 +62,8 @@ const EnterInformation = () => {
   }, [showModal])
 
   return (
-    <div className='w-full bg-[#1b1e9d]'>
-      <div className='md:bg-[url("/images/information/08-rights-bg.webp")] bg-opacity-15 bg-no-repeat bg-contain bg-center md:h-[1000px] lg:h-[1313px] aspect-[16/9] 
+    <div className='w-full'>
+      <div className='md:bg-[url("/images/information/08-rights-bg.webp")] bg-opacity-15 bg-no-repeat bg-contain bg-center md:h-[1000px] lg:h-[1313px] aspect-[16/9]
       w-full md:w-[800px] md:-translate-x-[60px] lg:w-[1300px] lg:-translate-x-[200px] 2xl:w-[1520px] 2xl:-translate-x-[300px] 3xl:w-[1920px] 3xl:-translate-x-[370px]'>
         <div className='container max-w-[1250px] mx-auto relative'>
           <Image
@@ -87,7 +87,7 @@ const EnterInformation = () => {
                 type="text"
                 placeholder="성함"
                 {...register("name", {
-                  // required: true, maxLength: 80 
+                  // required: true, maxLength: 80
                 })}
                 className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
               />
