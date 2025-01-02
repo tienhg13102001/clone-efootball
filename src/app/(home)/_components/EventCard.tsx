@@ -146,7 +146,7 @@ const EventCard = () => {
         />
       </div>
       {/*  */}
-      <div className="mb-[60px] max-w-[1250px] bg-[#2039E9] h-[700px] md:h-full 3xl:h-[1042px] mx-auto flex flex-col items-center justify-center md:justify-start rounded-3xl relative">
+      <div className="mb-[60px] max-w-[1250px] bg-[#2039E9] h-[700px] md:h-[800px] lg:h-[900px] 3xl:h-[1042px] mx-auto flex flex-col items-center justify-center md:justify-start rounded-3xl relative">
         <p className="md:mt-10 xl:mt-[73px] mb-5 xl:mb-[28px] text-3xl md:text-4xl lg:text-[50px]/[1] font-extrabold">EVENT 02</p>
         <div className="flex flex-col items-center text-4xl lg:text-[48px] tracking-[1.2] z-20 w-full">
           <div className="font-GmarketSans text-center font-medium text-base xxs:text-lg lg:text-[40px]/[48px]">
@@ -156,20 +156,20 @@ const EventCard = () => {
           <Image
             src={"/images/04-phone.webp"}
             alt=""
-            width={isMobile ? 337 : isLapTop ? 637 : 951}
-            height={isMobile ? 216 : 416}
+            width={isMobile ? 337 : isLapTop ? 537 : 951}
+            height={isMobile ? 216 : isLapTop ? 316 : 416}
             className="mt-5 xl:mt-[51px] object-contain"
           />
           <p className="text-xl text-center xl:text-[50px]/[1.2em] xl:leading-[60px] font-medium 3xl:-translate-y-9">
             eFootball™에서 <br />
             새로운 축구 게임을 경험해 보십시오!
           </p>
-          <div className="flex gap-[10px]">
+          <div className="flex gap-[10px] md:translate-y-3 2xl:translate-y-5 3xl:-translate-y-3">
             <Link href="https://play.google.com/store/apps/details?id=jp.konami.pesam&hl=vi&pli=1" target="_blank">
-              <Image src="/images/04-but-android.png" alt="android" width={isMobile ? 120 : 294} height={64} className="object-contain" />
+              <Image src="/images/04-but-android.png" alt="android" width={isMobile ? 120 : isTablet ? 200 : 294} height={64} className="object-contain" />
             </Link>
             <Link href="https://apps.apple.com/us/app/efootball/id1117270703" target="_blank">
-              <Image src="/images/04-but-ios.png" alt="android" width={isMobile ? 120 : 294} height={64} className="object-contain" />
+              <Image src="/images/04-but-ios.png" alt="android" width={isMobile ? 120 : isTablet ? 200 : 294} height={64} className="object-contain" />
             </Link>
           </div>
         </div>
