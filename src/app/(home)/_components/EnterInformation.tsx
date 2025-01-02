@@ -63,7 +63,7 @@ const EnterInformation = () => {
   return (
     <div className='w-full'>
       <div className='md:bg-[url("/images/information/08-rights-bg.webp")] bg-opacity-15 bg-no-repeat bg-contain bg-center md:h-[1000px] lg:h-[1313px] aspect-[16/9]
-      w-full md:w-[800px] md:-translate-x-[60px] lg:w-[1300px] lg:-translate-x-[200px] 2xl:w-[1520px] 2xl:-translate-x-[300px] 3xl:w-[1920px] 3xl:-translate-x-[370px]'>
+      w-full md:w-[800px] md:-translate-x-[60px] lg:w-[1300px] lg:-translate-x-[200px] 2xl:w-[1520px] 2xl:-translate-x-[270px] 3xl:w-[1920px] 3xl:-translate-x-[370px]'>
         <div className='container max-w-[1250px] mx-auto relative'>
           <Image
             src={"/images/information/do-05-shoes.webp"}
