@@ -168,7 +168,7 @@ const EventCard = () => {
           </p>
         </div>
         <Image
-          src={"/images/03-box-patterns.webp"}
+          src={"/images/04-box-patterns.webp"}
           alt="03-box-pattern"
           width={1250}
           height={1111}
