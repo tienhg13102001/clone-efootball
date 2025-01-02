@@ -75,9 +75,9 @@ const EnterInformation = () => {
           <div className='flex flex-col items-center pt-20 lg:pt-24'>
             <div className='relative mb-[39px]'>
               <Image src='/images/participate/05-titlebox.webp' alt='' width={110} height={52} />
-              <p className='absolute top-1 left-[33%] text-[#1a1a1a] text-[32px] font-bold'>03</p>
+              <p className='absolute top-1 left-[33%] text-[#1a1a1a] text-[32px] font-extrabold'>03</p>
             </div>
-            <p className='text-white text-3xl lg:text-[40px] font-bold mb-[35px] lg:leading-[53px] lg:-tracking-[0.8px]'>신청자 정보를 <br />
+            <p className='text-white text-3xl lg:text-[40px] mb-[35px] font-extrabold lg:leading-[53px] lg:-tracking-[0.8px]'>신청자 정보를 <br />
               입력해 주세요!
             </p>
 
