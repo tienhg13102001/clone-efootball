@@ -35,7 +35,8 @@ export default {
       container: {
         center: true,
         padding: {
-          DEFAULT: "32px",
+          DEFAULT: "10px",
+          md: "0px",
         },
       },
     },
