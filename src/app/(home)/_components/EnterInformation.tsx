@@ -63,7 +63,7 @@ const EnterInformation = () => {
   return (
     <div className='w-full'>
       <div className='md:bg-[url("/images/information/08-rights-bg.webp")] bg-opacity-15 bg-no-repeat bg-contain bg-center md:h-[1000px] lg:h-[1313px] aspect-[16/9]
-      w-full md:w-[800px] md:-translate-x-[60px] lg:w-[1300px] lg:-translate-x-[200px] 2xl:w-[1520px] 2xl:-translate-x-[270px] 3xl:w-[1920px] 3xl:-translate-x-[370px]'>
+      w-full md:w-[820px] md:translate-x-0 lg:w-[1300px] lg:-translate-x-[140px] 2xl:w-[1520px] 2xl:-translate-x-[260px] 3xl:w-[1920px] 3xl:-translate-x-[330px]'>
         <div className='container max-w-[1250px] mx-auto relative'>
           <Image
             src={"/images/information/do-05-shoes.webp"}
@@ -77,7 +77,7 @@ const EnterInformation = () => {
               <Image src='/images/participate/05-titlebox.webp' alt='' width={110} height={52} />
               <p className='absolute top-1 left-[33%] text-[#1a1a1a] text-[32px] font-extrabold'>03</p>
             </div>
-            <p className='text-white text-3xl lg:text-[40px] mb-[35px] font-extrabold lg:leading-[53px] lg:-tracking-[0.8px]'>신청자 정보를 <br />
+            <p className='text-white text-3xl text-center lg:text-[40px] mb-[47px] font-extrabold lg:leading-[53px] lg:-tracking-[0.8px]'>신청자 정보를 <br />
               입력해 주세요!
             </p>
 
@@ -137,7 +137,7 @@ const EnterInformation = () => {
                 })}
                 className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
               />
-              <div className='flex items-center gap-5 mt-6'>
+              <div className='flex items-center gap-5'>
                 <input
                   type="checkbox"
                   {...register("condition")}

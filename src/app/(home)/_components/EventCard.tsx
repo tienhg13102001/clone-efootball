@@ -44,7 +44,7 @@ const EventCard = () => {
             alt=""
             width={isLapTop ? 693 : 983}
             height={558}
-            className="mt-2 md:mt-[60px] mb-8 md:mb-16 object-contain"
+            className="mt-2 md:mt-[60.5px] mb-8 md:mb-16 object-contain"
           />
         </div>
         <Image
@@ -66,20 +66,20 @@ const EventCard = () => {
       {/*  */}
       <div className="my-5 xl:my-[44px] flex flex-col items-center relative">
         <Image src={"/images/event-subtitle-2.webp"} alt="03-box-pattern" width={1175} height={119} />
-        <p className="text-sm xl:text-[46px]/[1em] 2xl:text-[42px]/[1em] mt-[2px] xl:mt-2 font-bold absolute top-1/2 -translate-y-1/2 text-black">
+        <p className="text-sm md:text-3xl xl:text-[46px]/[1em] 2xl:text-[42px]/[1em] mt-[2px] xl:mt-2 font-bold absolute top-1/2 -translate-y-1/2 text-black">
           이벤트 1, 2, 3 중 <span className="text-[#253ce8]">하나만</span> 참여해도 당첨 가능!
         </p>
       </div>
       {/*  */}
       <div className="mb-[60px] max-w-[1250px] bg-[#2039E9] mx-auto flex flex-col items-center rounded-3xl relative z-10">
-        <p className="mt-10 xl:mt-[92px] mb-5 xl:mb-[28px] text-3xl md:text-4xl lg:text-[50px]/[1] font-bold">EVENT 01</p>
-        <div className="flex flex-col items-center text-sm xxs:text-base md:text-lg lg:text-3xl 3xl:text-[40px] 3xl:leading-[44px] z-20">
+        <p className="mt-10 xl:mt-[70px] mb-5 xl:mb-[28px] text-3xl md:text-4xl lg:text-[50px]/[1] font-extrabold">EVENT 01</p>
+        <div className="flex flex-col items-center text-sm xxs:text-base md:text-lg lg:text-3xl 3xl:text-[40px] 3xl:leading-[48px] 3xl:-tracking-[0.8px] z-20">
           <p className="font-GmarketSans text-center font-medium">
             감스트 X 이상호 팀 배틀을 기다리며
             <br />
             <span className="font-extrabold text-[#d8f700] ">나만의 개성 있는 방법으로 친구들에게 알리기!</span>
           </p>
-          <span className="text-md px-5 pt-1 pb-1 mt-3 xl:mt-[25px] xl:text-[38px]/[1.2] font-semibold bg-[#d8f700] text-black">
+          <span className="text-md px-5 xl:mt-[25px] xl:text-[34px]/[1.2] xl:leading-[48px] xl:tracking-[-1.36px] font-semibold bg-[#d8f700] text-black">
             영상, 인증샷, 캡쳐 이미지 참여 가능
           </span>
           <div className="max-md:px-5 mt-[67px] mb-[58px] grid lg:grid-cols-4 grid-cols-2 gap-4 3xl:gap-6">
@@ -117,7 +117,7 @@ const EventCard = () => {
             height={34}
             className="object-contain"
           />
-          <div className="text-center text-xs xxs:text-sm md:text-base lg:text-[28.5px]/[1.33] 3xl:text-[40px] mt-[14px] mb-[109px]">
+          <div className="text-center text-xs xxs:text-sm md:text-base lg:text-[28.5px]/[1.33] 3xl:text-[40px] 3xl:leading-[44.5px] mt-[14px] mb-[109px]">
             <p className="font-light">e풋볼 올스타즈 경기를 알리는 나만의 유형은?
             </p>
             <p className="font-bold"> 나만의 유형을 인증하면 다양하고 푸짐한 혜택이 팡팡!</p>
@@ -146,8 +146,8 @@ const EventCard = () => {
         />
       </div>
       {/*  */}
-      <div className="mb-[60px] max-w-[1250px] bg-[#2039E9] mx-auto flex flex-col items-center rounded-3xl relative">
-        <p className="mt-10 xl:mt-[92px] mb-5 xl:mb-[28px] text-3xl md:text-4xl lg:text-[50px]/[1] font-bold">EVENT 02</p>
+      <div className="mb-[60px] max-w-[1250px] bg-[#2039E9] h-[700px] md:h-full 3xl:h-[1042px] mx-auto flex flex-col items-center justify-center md:justify-start rounded-3xl relative">
+        <p className="md:mt-10 xl:mt-[73px] mb-5 xl:mb-[28px] text-3xl md:text-4xl lg:text-[50px]/[1] font-extrabold">EVENT 02</p>
         <div className="flex flex-col items-center text-4xl lg:text-[48px] tracking-[1.2] z-20 w-full">
           <div className="font-GmarketSans text-center font-medium text-base xxs:text-lg lg:text-[40px]/[48px]">
             <p> 앱 설치하고 즐겁게 플레이하면서</p>
@@ -156,24 +156,29 @@ const EventCard = () => {
           <Image
             src={"/images/04-phone.webp"}
             alt=""
-            width={isLapTop ? 637 : 951}
-            height={715}
-            className="mt-5 xl:mt-[79px] object-contain"
+            width={isMobile ? 337 : isLapTop ? 637 : 951}
+            height={isMobile ? 216 : 416}
+            className="mt-5 xl:mt-[51px] object-contain"
           />
-          <div className="text-xl text-center xl:text-[50px]/[1.2em] font-medium">
-            <p>eFootball™에서</p>
-            <p>새로운 축구 게임을 경험해 보십시오!</p>
+          <p className="text-xl text-center xl:text-[50px]/[1.2em] xl:leading-[60px] font-medium 3xl:-translate-y-9">
+            eFootball™에서 <br />
+            새로운 축구 게임을 경험해 보십시오!
+          </p>
+          <div className="flex gap-[10px]">
+            <Link href="https://play.google.com/store/apps/details?id=jp.konami.pesam&hl=vi&pli=1" target="_blank">
+              <Image src="/images/04-but-android.png" alt="android" width={isMobile ? 120 : 294} height={64} className="object-contain" />
+            </Link>
+            <Link href="https://apps.apple.com/us/app/efootball/id1117270703" target="_blank">
+              <Image src="/images/04-but-ios.png" alt="android" width={isMobile ? 120 : 294} height={64} className="object-contain" />
+            </Link>
           </div>
-          <Link href="https://play.google.com/store/apps/details?id=jp.konami.pesam&hl=vi&pli=1" target="_blank" className="text-base xl:text-[28px]/[1em] font-extrabold mt-[31px] mb-[100px] px-10 xl:px-[167px] py-3 xl:pt-4 xl:pb-5 bg-[#D9F700] text-black">
-            다운로드 하러가기
-          </Link>
         </div>
         <Image
           src={"/images/04-box-patterns.webp"}
           alt="03-box-pattern"
           width={1250}
-          height={1111}
-          className="absolute w-full h-full z-0 rounded-3xl"
+          height={931}
+          className="absolute z-0 bottom-0 rounded-3xl object-contain"
         />
         <Image
           src={"/images/do-03-ball.webp"}
@@ -191,8 +196,8 @@ const EventCard = () => {
         />
       </div>
       {/*  */}
-      <div className="max-w-[1250px] bg-[#2039E9] mx-auto flex flex-col items-center rounded-3xl relative">
-        <p className="mt-10 xl:mt-[72px] mb-5 xl:mb-[28px] text-3xl md:text-4xl lg:text-[50px]/[1] font-bold">EVENT 03</p>
+      <div className="max-w-[1250px] bg-[#2039E9] 3xl:h-[1290px] mx-auto flex flex-col items-center rounded-3xl relative mt-[60px]">
+        <p className="mt-10 xl:mt-[72px] mb-5 xl:mb-[28px] text-3xl md:text-4xl lg:text-[50px]/[1] font-extrabold">EVENT 03</p>
         <div className="flex flex-col items-center text-4xl lg:text-[48px] tracking-[0.8] z-10">
           <div className="font-GmarketSans text-center font-medium text-base xxs:text-lg lg:text-[42px]/[48px]">
             <p>정정당당 e풋볼 올스타즈 본방 시청하며</p>
@@ -216,8 +221,8 @@ const EventCard = () => {
           <Image
             src={"/images/04-img.webp"}
             alt=""
-            width={isLapTop ? 637 : 787}
-            height={715}
+            width={isMobile ? 337 : isLapTop ? 637 : 787}
+            height={isMobile ? 615 : 715}
             className="mt-[79px] mb-[140px] object-contain"
           />
         </div>
@@ -232,12 +237,12 @@ const EventCard = () => {
           src={"/images/05-box-patterns.webp"}
           alt="03-box-pattern"
           width={1250}
-          height={1111}
-          className="absolute w-full h-full z-0 rounded-3xl"
+          height={1290}
+          className="absolute bottom-0 z-0 rounded-3xl"
         />
       </div>
       {/*  */}
-      <div className="my-5 xl:my-[44px] flex flex-col items-center relative">
+      <div className="mt-5 xl:mt-[65px] flex flex-col items-center relative">
         <Image src={"/images/event-subtitle-2.webp"} alt="03-box-pattern" width={1175} height={119} />
         <p className="text-sm xl:text-[46px]/[1em] 2xl:text-[42px]/[1em] 3xl:text-[50px]/[1em] mt-[2px] xl:mt-2 font-extrabold absolute top-1/2 -translate-y-1/2 text-black">
           이벤트 1, 2, 3 중 <span className="text-[#253ce8]">하나만</span> 참여해도 당첨 가능!
