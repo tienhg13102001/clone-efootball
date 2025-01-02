@@ -72,14 +72,14 @@ const EventCard = () => {
       </div>
       {/*  */}
       <div className="mb-[60px] max-w-[1250px] bg-[#2039E9] mx-auto flex flex-col items-center rounded-3xl relative z-10">
-        <p className="mt-10 xl:mt-[92px] mb-[37px] text-3xl md:text-4xl lg:text-[50px]/[1] font-bold">EVENT 01</p>
+        <p className="mt-10 xl:mt-[92px] mb-5 xl:mb-[28px] text-3xl md:text-4xl lg:text-[50px]/[1] font-bold">EVENT 01</p>
         <div className="flex flex-col items-center text-sm xxs:text-base md:text-lg lg:text-3xl 3xl:text-[40px] 3xl:leading-[55px] -tracking-[0.8] z-20">
-          <p className="font-GmarketSans text-center font-medium ">
+          <p className="font-GmarketSans text-center font-medium">
             감스트 X 이상호 팀 배틀을 기다리며
             <br />
             <span className="font-bold text-[#d8f700] ">나만의 개성 있는 방법으로 친구들에게 알리기!</span>
           </p>
-          <span className="text-md px-5 pt-1 xl:pt-2 pb-1 mt-3 xl:mt-5 xl:text-[38px]/[1em] font-semibold bg-[#d8f700] text-black">
+          <span className="text-md px-5 pt-1 xl:pt-2 pb-1 mt-3 xl:mt-5 xl:text-[38px]/[1.2] font-normal  bg-[#d8f700] text-black">
             영상, 인증샷, 캡쳐 이미지 참여 가능
           </span>
           <div className="max-md:px-5 mt-[67px] mb-[58px] grid lg:grid-cols-4 grid-cols-2 gap-4 3xl:gap-6">
@@ -147,7 +147,7 @@ const EventCard = () => {
       </div>
       {/*  */}
       <div className="mb-[60px] max-w-[1250px] bg-[#2039E9] mx-auto flex flex-col items-center rounded-3xl relative">
-        <p className="mt-10 xl:mt-[92px] mb-5 xl:mb-[37px] text-3xl md:text-4xl lg:text-[50px]/[1] font-bold">EVENT 02</p>
+        <p className="mt-10 xl:mt-[92px] mb-5 xl:mb-[28px] text-3xl md:text-4xl lg:text-[50px]/[1] font-bold">EVENT 02</p>
         <div className="flex flex-col items-center text-4xl lg:text-[48px] tracking-[1.2] z-20 w-full">
           <div className="font-GmarketSans text-center font-medium text-base xxs:text-lg lg:text-[40px]/[48px]">
             <p> 앱 설치하고 즐겁게 플레이하면서</p>
@@ -192,7 +192,7 @@ const EventCard = () => {
       </div>
       {/*  */}
       <div className="max-w-[1250px] bg-[#2039E9] mx-auto flex flex-col items-center rounded-3xl relative">
-        <p className="mt-10 xl:mt-[72px] mb-5 xl:mb-[37px] text-3xl md:text-4xl lg:text-[50px]/[1] font-bold">EVENT 03</p>
+        <p className="mt-10 xl:mt-[72px] mb-5 xl:mb-[28px] text-3xl md:text-4xl lg:text-[50px]/[1] font-bold">EVENT 03</p>
         <div className="flex flex-col items-center text-4xl lg:text-[48px] tracking-[0.8] z-10">
           <div className="font-GmarketSans text-center font-medium text-base xxs:text-lg lg:text-[42px]/[48px]">
             <p>정정당당 e풋볼 올스타즈 본방 시청하며</p>
