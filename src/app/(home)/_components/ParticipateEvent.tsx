@@ -34,12 +34,12 @@ const ParticipateEvent = () => {
               <Image src='/images/participate/05-titlebox.webp' alt='' width={110} height={52} />
               <p className='absolute top-1 left-[33%] text-[#1a1a1a] text-[32px] font-extrabold'>01</p>
             </div>
-            <p className='text-white text-2xl lg:text-[40px] text-center font-extrabold mb-[35px] lg:-tracking-[0.8px] lg:leading-[56px]'>나만의 개성 있는 정정당당 e풋볼 올스타즈
+            <p className='text-white text-2xl lg:text-[40px] text-center font-extrabold mb-[30px] lg:-tracking-[0.8px] lg:leading-[50px]'>나만의 개성 있는 정정당당 e풋볼 올스타즈
               <br />
               <span className='text-[#d8f700]'>기대 영상</span>을 올려주세요!</p>
             <p className='text-[#a7a7a7] text-xs lg:text-2xl font-medium'>*경기 응원 영상과 관람 영상 모두 올리면 당첨 확률은 업업업!</p>
 
-            <div className='mt-[72px] relative'>
+            <div className='relative'>
               <Image src='/images/participate/05-all-box.webp' alt='' width={1250} height={566} className='object-contain' />
               <div className='absolute top-10 xs:top-12 md:top-24 lg:top-28 3xl:top-32 left-[58%]'>
                 <p className='text-white text-xs xs:text-sm md:text-2xl lg:text-3xl 3xl:text-[40px] font-extrabold mb-4 lg:mb-[50px] lg:-tracking-[0.8px] 3xl:leading-[52px]'>사전 응원 영상 이벤트 <br />
@@ -58,7 +58,7 @@ const ParticipateEvent = () => {
                 </div>
               </div>
             </div>
-            <button className='mt-10 lg:mt-[61px] hover:opacity-80' onClick={handleScroll}>
+            <button className='hover:opacity-80' onClick={handleScroll}>
               <Image src='/images/participate/05-but.webp' alt='05-but' width={isMobile ? 300 : 560} height={70} className='object-contain' />
             </button>
           </section>
@@ -68,12 +68,12 @@ const ParticipateEvent = () => {
               <Image src='/images/participate/05-titlebox.webp' alt='' width={110} height={52} />
               <p className='absolute top-1 left-[33%] text-[#1a1a1a] text-[32px] font-extrabold'>02</p>
             </div>
-            <p className='text-white text-2xl lg:text-[40px] text-center font-bold mb-4 lg:mb-[35px] lg:-tracking-[0.8px] lg:leading-[56px]'>e풋볼컵을 관람하는
+            <p className='text-white text-2xl lg:text-[40px] text-center font-bold mb-4 lg:mb-[30px] lg:-tracking-[0.8px] lg:leading-[50px]'>e풋볼컵을 관람하는
               <br />
               <span className='text-[#d8f700]'>인증 영상</span>을 올려주세요!</p>
-            <p className='text-[#a7a7a7] text-[8px] xs:text-[10px] lg:text-xl 3xl:text-2xl font-medium'>SOOP 방송과 함께 인증샷, 방송 관람 영상 등 e풋볼 경기와 함께는 영상을 업로드해 주세요!</p>
+            <p className='text-[#a8a8a8] text-[8px] xs:text-[10px] lg:text-xl 3xl:text-2xl font-medium'>SOOP 방송과 함께 인증샷, 방송 관람 영상 등 e풋볼 경기와 함께는 영상을 업로드해 주세요!</p>
 
-            <div className='mt-[72px] relative'>
+            <div className='relative'>
               <Image src='/images/participate/06-all-box.webp' alt='' width={1250} height={566} className='object-contain' />
               <div className='absolute top-8 xxs:top-9 xs:top-10 md:top-20 lg:top-24 3xl:top-28 left-[58%]'>
                 <p className='text-white text-xs xs:text-sm md:text-3xl lg:text-4xl 3xl:text-[40px] font-extrabold mb-3 lg:mb-8 lg:-tracking-[0.8px] 3xl:leading-[52px]'>관람 인증 이벤트 <br />
@@ -100,7 +100,7 @@ const ParticipateEvent = () => {
 
 
             </div>
-            <button className='mt-10 lg:mt-[61px] hover:opacity-90' onClick={handleScroll}>
+            <button className='hover:opacity-90' onClick={handleScroll}>
               <Image src='/images/participate/05-but.webp' alt='05-but' width={isMobile ? 300 : 560} height={70} className='object-contain' />
             </button>
           </section>
