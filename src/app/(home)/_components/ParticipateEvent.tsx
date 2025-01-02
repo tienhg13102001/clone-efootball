@@ -40,7 +40,7 @@ const ParticipateEvent = () => {
 
             <div className='mt-[72px] relative'>
               <Image src='/images/participate/05-all-box.webp' alt='' width={1250} height={566} className='object-contain' />
-              <div className='absolute top-5 xxs:top-8 xs:top-10 md:top-20 lg:top-24 2xl:top-16 3xl:top-32 left-[58%]'>
+              <div className='absolute top-10 xs:top-12 md:top-24 lg:top-28 3xl:top-32 left-[58%]'>
                 <p className='text-white text-xs xs:text-sm md:text-2xl lg:text-3xl 3xl:text-[40px] font-bold mb-4 lg:mb-[50px] lg:-tracking-[0.8px] 3xl:leading-[52px]'>사전 응원 영상 이벤트 <br />
                   참여 방법</p>
                 <div className='flex gap-2 md:gap-3 items-start mb-3 lg:mb-[40px]'>
@@ -73,7 +73,7 @@ const ParticipateEvent = () => {
 
             <div className='mt-[72px] relative'>
               <Image src='/images/participate/06-all-box.webp' alt='' width={1250} height={566} className='object-contain' />
-              <div className='absolute top-4 xxs:top-6 xs:top-8 md:top-16 lg:top-10 3xl:top-28 left-[58%]'>
+              <div className='absolute top-8 xxs:top-9 xs:top-10 md:top-20 lg:top-24 3xl:top-28 left-[58%]'>
                 <p className='text-white text-xs xs:text-sm md:text-3xl lg:text-4xl 3xl:text-[40px] font-bold mb-3 lg:mb-8 lg:-tracking-[0.8px] 3xl:leading-[52px]'>관람 인증 이벤트 <br />
                   참여 방법</p>
                 <div className='flex gap-2 md:gap-3 items-start mb-2 lg:mb-8'>
