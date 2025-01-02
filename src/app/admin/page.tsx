@@ -38,6 +38,7 @@ export default function Home() {
 
   console.log(filterColumn, searchTerm)
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const filteredData = users.filter((item: any) => item[`${filterColumn}`]?.toLowerCase().includes(searchTerm.toLowerCase())).map((user: User) => (
     {
       ...user,
