@@ -1,5 +1,4 @@
 'use client'
-
 import PhotoGrid from "@/components/share/photoGrid";
 import Table from "@/components/share/table";
 import { useAuth } from "@/contexts/AuthContext";
@@ -14,14 +13,15 @@ import { toast } from "react-toastify";
 
 
 const columns = [
+  { key: 'name', header: '이름' },
+  { key: 'phoneNumber', header: '전화번호' },
   { key: 'email', header: '이메일' },
-  { key: 'phone', header: '전화번호' },
-  { key: 'role', header: '역할' },
-  { key: 'informationConsent', header: '정보동의' },
-  { key: 'applycationStats', header: '통계' },
+  // { key: 'role', header: '역할' },
+  // { key: 'informationConsent', header: '정보동의' },
+  // { key: 'applycationStats', header: '통계' },
   { key: 'createdAt', header: '생성됨' },
   { key: 'postStatus', header: '게시 ON/OFF' },
-  { key: 'lastLogin', header: '로그인' },
+  // { key: 'lastLogin', header: '로그인' },
 ];
 
 
