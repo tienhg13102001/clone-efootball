@@ -27,9 +27,11 @@ const Table: React.FC<TableProps> = ({ data, columns, rowsPerPage = 10 }) => {
         if (currentPage < totalPages) setCurrentPage(currentPage + 1);
     };
 
+    console.log(columns.length)
+
     return (
         <div>
-            <table className="table-auto w-full border-collapse ">
+            <table className="table-fixed w-full border-collapse ">
                 <thead>
                     <tr >
                         <th className=" px-4 py-2">

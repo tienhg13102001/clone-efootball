@@ -19,7 +19,7 @@ const columns = [
   // { key: 'role', header: '역할' },
   // { key: 'informationConsent', header: '정보동의' },
   // { key: 'applycationStats', header: '통계' },
-  { key: 'createdAt', header: '생성됨' },
+  { key: 'createdAt', header: '응모 날짜' },
   { key: 'postStatus', header: '게시 ON/OFF' },
   // { key: 'lastLogin', header: '로그인' },
 ];
