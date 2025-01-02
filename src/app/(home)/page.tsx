@@ -5,14 +5,27 @@ import ParticipateEvent from "./_components/ParticipateEvent"
 
 const EventPage = () => {
   return (
-    <div className="flex flex-col relative w-screen overflow-x-hidden bg-[#14189E]">
+    <div className="relative flex w-screen flex-col overflow-x-hidden bg-[#14189E]">
       {/* <HeaderEventPage /> */}
-      <Image src={"/images/main-bg.webp"} alt="main-bg" width={1920} height={1881} className="absolute -top-5 -left-2 -right-2 z-0 scale-105 object-cover w-full"/>
-      <div className="w-full text-white">
+      <Image
+        src={"/images/main-bg.webp"}
+        alt="main-bg"
+        width={1920}
+        height={1881}
+        className="absolute -left-2 -right-2 -top-5 z-0 w-full scale-105 object-cover"
+      />
+      <div className="relative w-full text-white z-10">
         <Banner />
         <EventCard />
         <ParticipateEvent />
       </div>
+      <Image
+        src={"/images/information/08-rights-bg.webp"}
+        alt=""
+        width={1920}
+        height={1313}
+        className="absolute -left-2 -right-2 bottom-0 z-0 w-full object-cover opacity-50"
+      />
       {/* <FooterEventPage /> */}
     </div>
   )
