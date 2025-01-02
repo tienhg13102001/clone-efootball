@@ -74,10 +74,10 @@ const EventCard = () => {
       <div className="mb-[60px] max-w-[1250px] bg-[#2039E9] mx-auto flex flex-col items-center rounded-3xl relative z-10">
         <p className="mt-10 xl:mt-[92px] mb-5 xl:mb-[28px] text-3xl md:text-4xl lg:text-[50px]/[1] font-bold">EVENT 01</p>
         <div className="flex flex-col items-center text-sm xxs:text-base md:text-lg lg:text-3xl 3xl:text-[40px] 3xl:leading-[44px] z-20">
-          <p className="font-GmarketSans text-center font-semibold">
+          <p className="font-GmarketSans text-center font-medium">
             감스트 X 이상호 팀 배틀을 기다리며
             <br />
-            <span className="font-bold text-[#d8f700] ">나만의 개성 있는 방법으로 친구들에게 알리기!</span>
+            <span className="font-extrabold text-[#d8f700] ">나만의 개성 있는 방법으로 친구들에게 알리기!</span>
           </p>
           <span className="text-md px-5 pt-1 pb-1 mt-3 xl:mt-[25px] xl:text-[38px]/[1.2] font-semibold bg-[#d8f700] text-black">
             영상, 인증샷, 캡쳐 이미지 참여 가능
@@ -151,7 +151,7 @@ const EventCard = () => {
         <div className="flex flex-col items-center text-4xl lg:text-[48px] tracking-[1.2] z-20 w-full">
           <div className="font-GmarketSans text-center font-medium text-base xxs:text-lg lg:text-[40px]/[48px]">
             <p> 앱 설치하고 즐겁게 플레이하면서</p>
-            <p className="text-[#d8f700] font-bold">스크린샷 인증하자!</p>
+            <p className="text-[#d8f700] font-extrabold">스크린샷 인증하자!</p>
           </div>
           <Image
             src={"/images/04-phone.webp"}
@@ -196,7 +196,7 @@ const EventCard = () => {
         <div className="flex flex-col items-center text-4xl lg:text-[48px] tracking-[0.8] z-10">
           <div className="font-GmarketSans text-center font-medium text-base xxs:text-lg lg:text-[42px]/[48px]">
             <p>정정당당 e풋볼 올스타즈 본방 시청하며</p>
-            <div className="text-[#d8f700] font-bold flex justify-center tracking-[-0.41] items-start">
+            <div className="text-[#d8f700] font-extrabold flex justify-center tracking-[-0.41] items-start">
               응원 영상 및 인증샷 올리기!
               <span className="text-xs relative font-bold xl:text-[20px]/[1] text-black ml-2 px-2 xl:px-4 py-[1px] xl:pt-2 xl:pb-1 bg-[#d8f700] rounded-full">
                 <p className="relative z-10">캡쳐도가능!</p>
@@ -209,7 +209,7 @@ const EventCard = () => {
               </span>
             </div>
 
-            <p className="text-[#cacaca] text-xs md:text-sm lg:text-2xl/[48px]">
+            <p className="text-[#cacaca] text-xs md:text-sm font-medium lg:text-2xl/[48px]">
               대회 생방송 : 1월 25일 숲(SOOP) & 유튜브 라이브
             </p>
           </div>
@@ -239,7 +239,7 @@ const EventCard = () => {
       {/*  */}
       <div className="my-5 xl:my-[44px] flex flex-col items-center relative">
         <Image src={"/images/event-subtitle-2.webp"} alt="03-box-pattern" width={1175} height={119} />
-        <p className="text-sm xl:text-[46px]/[1em] 2xl:text-[42px]/[1em] 3xl:text-[50px]/[1em] mt-[2px] xl:mt-2 font-bold absolute top-1/2 -translate-y-1/2 text-black">
+        <p className="text-sm xl:text-[46px]/[1em] 2xl:text-[42px]/[1em] 3xl:text-[50px]/[1em] mt-[2px] xl:mt-2 font-extrabold absolute top-1/2 -translate-y-1/2 text-black">
           이벤트 1, 2, 3 중 <span className="text-[#253ce8]">하나만</span> 참여해도 당첨 가능!
         </p>
       </div>
