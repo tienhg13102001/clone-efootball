@@ -35,7 +35,7 @@ const EventCard = () => {
     <div className="container max-w-[1000px] 3xl:max-w-[1250px] mx-auto">
       <div className=" bg-[#2039E9] rounded-3xl w-full relative flex flex-col items-center">
         <div className="z-10 flex flex-col items-center text-lg lg:text-5xl 3xl:text-[66px] lg:leading-[76px]">
-          <div className="font-GmarketSans text-center font-medium mt-20 md:mt-[147px] text-md xl:text-6xl">
+          <div className="font-GmarketSans text-center font-medium mt-20 md:mt-[147px] text-md 2xl:text-5xl 3xl:text-6xl">
             정정당당 e풋볼 올스타즈 이벤트 참여하고
             <p className="font-bold text-[#d8f700]">김민재 응원하러 가자!</p>
           </div>
@@ -73,13 +73,13 @@ const EventCard = () => {
       {/*  */}
       <div className="mb-[60px] max-w-[1250px] bg-[#2039E9] mx-auto flex flex-col items-center rounded-3xl relative z-10">
         <p className="mt-10 xl:mt-[92px] mb-5 xl:mb-[28px] text-3xl md:text-4xl lg:text-[50px]/[1] font-bold">EVENT 01</p>
-        <div className="flex flex-col items-center text-sm xxs:text-base md:text-lg lg:text-3xl 3xl:text-[40px] 3xl:leading-[55px] -tracking-[0.8] z-20">
-          <p className="font-GmarketSans text-center font-medium">
+        <div className="flex flex-col items-center text-sm xxs:text-base md:text-lg lg:text-3xl 3xl:text-[40px] 3xl:leading-[44px] z-20">
+          <p className="font-GmarketSans text-center font-semibold">
             감스트 X 이상호 팀 배틀을 기다리며
             <br />
             <span className="font-bold text-[#d8f700] ">나만의 개성 있는 방법으로 친구들에게 알리기!</span>
           </p>
-          <span className="text-md px-5 pt-1 xl:pt-2 pb-1 mt-3 xl:mt-5 xl:text-[38px]/[1.2] font-medium bg-[#d8f700] text-black">
+          <span className="text-md px-5 pt-1 pb-1 mt-3 xl:mt-[25px] xl:text-[38px]/[1.2] font-semibold bg-[#d8f700] text-black">
             영상, 인증샷, 캡쳐 이미지 참여 가능
           </span>
           <div className="max-md:px-5 mt-[67px] mb-[58px] grid lg:grid-cols-4 grid-cols-2 gap-4 3xl:gap-6">
@@ -198,10 +198,10 @@ const EventCard = () => {
             <p>정정당당 e풋볼 올스타즈 본방 시청하며</p>
             <div className="text-[#d8f700] font-bold flex justify-center tracking-[-0.41] items-start">
               응원 영상 및 인증샷 올리기!
-              <span className="text-xs relative font-medium xl:text-[20px]/[1] text-black ml-2 px-2 xl:px-4 py-[1px] xl:py-[6px] bg-[#d8f700] rounded-full">
+              <span className="text-xs relative font-bold xl:text-[20px]/[1] text-black ml-2 px-2 xl:px-4 py-[1px] xl:pt-2 xl:pb-1 bg-[#d8f700] rounded-full">
                 <p className="relative z-10">캡쳐도가능!</p>
                 <div
-                  className="absolute z-0 -bottom-1 left-2 w-3 h-3 xl:w-7 xl:h-7 bg-[#d8f700] -rotate-45"
+                  className="absolute z-0 -bottom-1 left-2 w-3 h-3 xl:w-7 xl:h-6 bg-[#d8f700] -rotate-45"
                   style={{
                     clipPath: "polygon(200% 0, 0 100%, 100% 100%)",
                   }}
@@ -239,7 +239,7 @@ const EventCard = () => {
       {/*  */}
       <div className="my-5 xl:my-[44px] flex flex-col items-center relative">
         <Image src={"/images/event-subtitle-2.webp"} alt="03-box-pattern" width={1175} height={119} />
-        <p className="text-sm xl:text-[46px]/[1em] 2xl:text-[42px]/[1em] mt-[2px] xl:mt-2 font-bold absolute top-1/2 -translate-y-1/2 text-black">
+        <p className="text-sm xl:text-[46px]/[1em] 2xl:text-[42px]/[1em] 3xl:text-[50px]/[1em] mt-[2px] xl:mt-2 font-bold absolute top-1/2 -translate-y-1/2 text-black">
           이벤트 1, 2, 3 중 <span className="text-[#253ce8]">하나만</span> 참여해도 당첨 가능!
         </p>
       </div>
