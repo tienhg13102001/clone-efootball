@@ -1,6 +1,7 @@
 "use client"
 import useScreenSize from "@/hooks/useScreenSize"
 import Image from "next/image"
+import Link from "next/link"
 import React from "react"
 
 const EventCard = () => {
@@ -117,9 +118,9 @@ const EventCard = () => {
             className="object-contain"
           />
           <div className="text-center text-xs xxs:text-sm md:text-base lg:text-[28.5px]/[1.33] mt-[14px] mb-[109px]">
-            <p className="font-light">나만의 특별한 응원법! 이 경기장의 패셔니스타는 바로나!</p>
-            <p className="font-light">응원할 때 먹으면 두 배 즐거워지는 먹방 노하우!</p>
-            <p className="font-bold">특별한 응원 영상 인증과 함께 다양하고 푸짐한 혜택도 팡팡!</p>
+            <p className="font-light">e풋볼 올스타즈 경기를 알리는 나만의 유형은?
+            </p>
+            <p className="font-bold"> 나만의 유형을 인증하면 다양하고 푸짐한 혜택이 팡팡!</p>
           </div>
         </div>
         <Image
@@ -163,9 +164,9 @@ const EventCard = () => {
             <p>eFootball™에서</p>
             <p>새로운 축구 게임을 경험해 보십시오!</p>
           </div>
-          <p className="text-base xl:text-[28px]/[1em] font-extrabold mt-[31px] mb-[100px] px-10 xl:px-[167px] py-3 xl:pt-4 xl:pb-5 bg-[#D9F700] text-black">
+          <Link href="https://play.google.com/store/apps/details?id=jp.konami.pesam&hl=vi&pli=1" target="_blank" className="text-base xl:text-[28px]/[1em] font-extrabold mt-[31px] mb-[100px] px-10 xl:px-[167px] py-3 xl:pt-4 xl:pb-5 bg-[#D9F700] text-black">
             다운로드 하러가기
-          </p>
+          </Link>
         </div>
         <Image
           src={"/images/04-box-patterns.webp"}
@@ -191,11 +192,11 @@ const EventCard = () => {
       </div>
       {/*  */}
       <div className="max-w-[1250px] bg-[#2039E9] mx-auto flex flex-col items-center rounded-3xl relative">
-        <p className="mt-10 xl:mt-[72px] mb-5 xl:mb-[37px] text-3xl md:text-4xl lg:text-[50px]/[1] font-bold">EVENT 02</p>
+        <p className="mt-10 xl:mt-[72px] mb-5 xl:mb-[37px] text-3xl md:text-4xl lg:text-[50px]/[1] font-bold">EVENT 03</p>
         <div className="flex flex-col items-center text-4xl lg:text-[48px] tracking-[0.8] z-10">
           <div className="font-GmarketSans text-center font-medium text-base xxs:text-lg lg:text-[42px]/[48px]">
             <p>정정당당 e풋볼 올스타즈 본방 시청하며</p>
-            <p className="text-[#d8f700] font-bold flex justify-center tracking-[-0.41] items-start">
+            <div className="text-[#d8f700] font-bold flex justify-center tracking-[-0.41] items-start">
               응원 영상 및 인증샷 올리기!
               <span className="text-xs relative font-medium xl:text-[20px]/[1] text-black ml-2 px-2 xl:px-4 py-[1px] xl:py-[6px] bg-[#d8f700] rounded-full">
                 <p className="relative z-10">캡쳐도가능!</p>
@@ -206,7 +207,7 @@ const EventCard = () => {
                   }}
                 ></div>
               </span>
-            </p>
+            </div>
 
             <p className="text-[#cacaca] text-xs md:text-sm lg:text-2xl/[48px]">
               대회 생방송 : 1월 25일 숲(SOOP) & 유튜브 라이브

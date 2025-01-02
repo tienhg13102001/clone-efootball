@@ -10,7 +10,6 @@ interface FormData {
   name: string;
   phoneNumber: string;
   email: string;
-  birthDate: string;
   website: string;
   condition?: boolean;
 }
@@ -91,12 +90,12 @@ const EnterInformation = () => {
                 })}
                 className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
               />
-              <input
+              {/* <input
                 type="text"
                 placeholder='생년월일'
                 {...register("birthDate",)}
                 className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
-              />
+              /> */}
 
               <input
                 type="tel"
