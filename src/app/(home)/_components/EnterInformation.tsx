@@ -10,7 +10,6 @@ interface FormData {
   name: string;
   phoneNumber: string;
   email: string;
-  birthDate: string;
   website: string;
   condition?: boolean;
 }
@@ -91,12 +90,12 @@ const EnterInformation = () => {
                 })}
                 className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
               />
-              <input
+              {/* <input
                 type="text"
                 placeholder='생년월일'
                 {...register("birthDate",)}
                 className='text-center text-lg lg:text-2xl text-[#b3b3b3] py-4 lg:py-6 px-[60px] lg:px-[120px] outline-none'
-              />
+              /> */}
 
               <input
                 type="tel"
@@ -158,10 +157,8 @@ const EnterInformation = () => {
             </form>
             {showModal && (
               <div className='fixed inset-0 bg-[#1b1e9d] bg-opacity-50 flex justify-center items-center z-50' onClick={() => setShowModal(false)}  >
-                <div className='bg-white py-8 px-16 md:px-36 shadow-lg text-center border-2 border-black' onClick={(e) => e.stopPropagation()} >
-                  <p className='text-2xl text-black font-bold mb-4'>이벤트 응모 완료! <br />
-                    감사합니다</p>
-                  <p className='text-xl text-black font-bold mt-2'>(Complete!)</p>
+                <div className='bg-white pt-8 pb-4 px-16 md:px-36 shadow-lg text-center border-2 border-black' onClick={(e) => e.stopPropagation()} >
+                  <p className='text-2xl text-black font-bold mb-4'>이벤트 응모 완료! </p>
                 </div>
               </div>
             )}
