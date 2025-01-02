@@ -48,7 +48,8 @@ const ParticipateEvent = () => {
                   <Image src='/images/participate/05-numberbox-1.webp' alt='numberbox-1' width={isMobile ? 10 : isTablet ? 15 : isLapTop ? 20 : 30} height={isMobile ? 10 : isTablet ? 15 : isLapTop ? 20 : 30} className='object-contain' />
                   <p className='text-white text-[8px] md:text-lg lg:text-2xl 3xl:text-[28px] font-medium lg:-translate-y-2 3xl:leading-[40px]'>유튜브 숏츠, 인스타, 틱톡에
                     <br />
-                    <span className='text-[#d8f700] font-bold'>세로용 영상</span>을 업로드하기</p>
+                    <span className='text-[#d8f700] font-bold'>
+                      세로용 영상 or 이미지</span> 업로드하기</p>
                 </div>
                 <div className='flex gap-2 md:gap-3 items-start'>
                   <Image src='/images/participate/05-numberbox-2.webp' alt='numberbox-2' width={isMobile ? 10 : isTablet ? 15 : isLapTop ? 20 : 30} height={isMobile ? 10 : isTablet ? 15 : isLapTop ? 20 : 30} className='object-contain' />
