@@ -79,7 +79,7 @@ const EventCard = () => {
             <br />
             <span className="font-bold text-[#d8f700] ">나만의 개성 있는 방법으로 친구들에게 알리기!</span>
           </p>
-          <span className="text-md px-5 pt-1 xl:pt-2 pb-1 mt-3 xl:mt-5 xl:text-[38px]/[1.2] font-normal  bg-[#d8f700] text-black">
+          <span className="text-md px-5 pt-1 xl:pt-2 pb-1 mt-3 xl:mt-5 xl:text-[38px]/[1.2] font-medium bg-[#d8f700] text-black">
             영상, 인증샷, 캡쳐 이미지 참여 가능
           </span>
           <div className="max-md:px-5 mt-[67px] mb-[58px] grid lg:grid-cols-4 grid-cols-2 gap-4 3xl:gap-6">
@@ -117,7 +117,7 @@ const EventCard = () => {
             height={34}
             className="object-contain"
           />
-          <div className="text-center text-xs xxs:text-sm md:text-base lg:text-[28.5px]/[1.33] mt-[14px] mb-[109px]">
+          <div className="text-center text-xs xxs:text-sm md:text-base lg:text-[28.5px]/[1.33] 3xl:text-[40px] mt-[14px] mb-[109px]">
             <p className="font-light">e풋볼 올스타즈 경기를 알리는 나만의 유형은?
             </p>
             <p className="font-bold"> 나만의 유형을 인증하면 다양하고 푸짐한 혜택이 팡팡!</p>
